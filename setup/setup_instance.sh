@@ -48,6 +48,9 @@ if ! type "conda" &> /dev/null; then
     echo "export PATH=$HOME/anaconda3/bin:$PATH" >> ~/.bashrc
 
     echo "Completed installation of conda."
+
+    # References:
+    # [1] https://conda.io/docs/help/silent.html
 fi
 
 #### Components needed to run Flask app ####
@@ -69,6 +72,7 @@ fi
     # References:
     # [1] https://www.matthealy.com.au/blog/post/deploying-flask-to-amazon-web-services-ec2/
     # [2] http://nginx.org/en/docs/beginners_guide.html
+    # [3] https://forums.aws.amazon.com/thread.jspa?threadID=77788
     echo "Installation of Flask components complete."
 
 #### Install python package and conda env ####
