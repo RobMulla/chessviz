@@ -1,18 +1,19 @@
 import sqlite3
 import time
-
-
-from flask import Flask, request, g, jsonify
+from flask import Flask
+from flask import request
+from flask import g
+from flask import jsonify
 
 app = Flask(__name__)
 
-DATABASE = '/Users/mwburke/Documents/MIDS/Summer_2017/W209/W209-Final-Project/data/fics/chessviz.db'
+DB_PATH = '/Users/mwburke/Documents/MIDS/Summer_2017/W209/W209-Final-Project/data/fics/chessviz.db'
 
 app.config.from_object(__name__)
 
 
 def connect_to_database():
-    return sqlite3.connect(app.config['DATABASE'])
+    return sqlite3.connect(app.config['DB_PATH'])
 
 
 def get_db():
