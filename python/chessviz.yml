@@ -13,11 +13,28 @@ dependencies:
 - xz=5.2.2=1
 - zlib=1.2.8=3
 - pip:
+  - alabaster==0.7.10
+  - babel==2.4.0
+  - certifi==2017.4.17
+  - chardet==3.0.4
   - click==6.7
+  - docutils==0.13.1
   - flask==0.12.2
+  - idna==2.5
+  - imagesize==0.7.1
   - itsdangerous==0.24
   - jinja2==2.9.6
   - markupsafe==1.0
+  - pockets==0.5.1
+  - pygments==2.2.0
   - python-chess==0.18.3
+  - pytz==2017.2
+  - requests==2.18.1
+  - six==1.10.0
+  - snowballstemmer==1.2.1
+  - sphinx==1.6.2
+  - sphinxcontrib-napoleon==0.6.1
+  - sphinxcontrib-programoutput==0.11
+  - sphinxcontrib-websupport==1.0.1
+  - urllib3==1.21.1
   - werkzeug==0.12.2
-prefix: /home/ec2-user/anaconda3/envs/chessviz

@@ -39,16 +39,20 @@ def close_connection(exception):
 
 @app.route("/viewdb")
 def viewdb():
-    """Basic select all query for testing"""
+    """
+    Basic select all query for testing.
+    """
     rows = execute_query("""SELECT * FROM chessdata""")
     return jsonify(rows)
 
 
 @app.route("/pieceusage")
 def pieceusage():
-    """Returns the results of how
+    """
+    Returns the results of how
     many times a piece was
-    used during move numbers"""
+    used during move numbers
+    """
     # TODO return total (scaled?) usage per move for all pieces
     rows = execute_query("""select white, move_piece, move, count(*)
                             from chessdata
@@ -58,7 +62,8 @@ def pieceusage():
 
 @app.route("/pieceinfo")
 def pieceinfo():
-    """Respond to a query of the format:
+    """
+    Respond to a query of the format:
     pieceinfo/?player=white&piece=P2 with
     """
     start_time = time.time()
@@ -86,8 +91,10 @@ def pieceinfo():
 
 @app.route("/getcount")
 def getcount():
-    """Returns the count of
-    rows in the dastabase"""
+    """
+    Returns the count of
+    rows in the dastabase
+    """
     cur = get_db().cursor()
     result = execute_query(
         """SELECT count(*)

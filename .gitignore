@@ -1,3 +1,8 @@
 
 # data
 app/data/*.pgn
+
+# python stuff
+python/build/
+python/chessviz.egg-info/
+python/dist/

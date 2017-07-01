@@ -1,6 +1,9 @@
+"""
+Class to represent a chess game.
+"""
 
 
-class HelperChess:
+class ChessMatch:
 
     def __init__(self):
         self.letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -9,6 +12,9 @@ class HelperChess:
         self.initialize_board()
 
     def initialize_board(self):
+        """
+        Create a representation of a chess board.
+        """
         self.board = {}
         for number in [2, 7]:
             for letter in self.letters:
@@ -32,6 +38,9 @@ class HelperChess:
 
     # Takes in move specifications
     def handle_move(self, move_from, white, move_to=None):
+        """
+        Update the board given some input move
+        """
         piece = self.board[move_from]
         taken = None
         if move_to == 'O-O-0':
