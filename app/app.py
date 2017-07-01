@@ -78,7 +78,7 @@ def pieceinfo():
     )
     str_rows = [','.join(map(str, row)) for row in result]
     query_time = time.time() - start_time
-    #logging.info("executed query in %s" % query_time)
+    # logging.info("executed query in %s" % query_time)
     cur.close()
     return jsonify(result)
 
