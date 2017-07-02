@@ -5,7 +5,8 @@ This repo holds all files related to `chessviz`, and interactive visualization o
 ## Contents
 1. [Target Use Case](#usecase)
 2. [Data Source](#datasource)
-3. [Another paragraph](#references)
+3. [How to Create an App Instance](#appdirections)
+3. [References](#references)
 
 ## Target Use Case <a name="usecase"></a>
 
@@ -67,6 +68,10 @@ In order to calculate some of the data for specific tasks, the data needs to pro
 ### Final Data Formats
 
 We used the `python-chess` package to read in the PGN file for initial processing.
+
+## How to Create an App Instance
+
+
 
 ## References <a name="references"></a>
 

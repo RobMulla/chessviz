@@ -2,6 +2,7 @@
 # data
 app/data/*.pgn
 app/data/*.db
+app/data/*.json
 etl/*.csv
 etl/*.pgn
 
