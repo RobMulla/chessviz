@@ -24,47 +24,40 @@
 
   <!-- Load external libraries -->
   <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="dist/ChessDataViz.min.js"></script>
+  <script src="js/lib/ChessDataViz.min.js"></script>
 
   <!-- Load our JS -->
-  <script src="ChessScript.js"></script>
+  <script src="js/rob_script.js"></script>
 
-<!-- FIRST EXAMPLE -->
+  <!-- FIRST EXAMPLE -->
   <div id="heatmap-example-1" class="cdv-heatmap"></div>
   <div class="caption">World Rapid Chess Championship 2015, square utilization by white (how many times a piece landed on a square)</div>
 
-<!-- SECOND EXAMPLE MOVE PATHS -->
-
-
+  <!-- SECOND EXAMPLE MOVE PATHS -->
   <div class="cdv-move-paths" id="movepaths">
   </div>
   <div class="caption">Journey of the white queen's knight during World Rapid Chess Championship 2015.
   </div>
 
-
-<!-- THIRD EXAMPLE QUEEN THINGS-->
-
-<div id="heatmap-example-2" class="cdv-heatmap"></div>
-<div class="caption">
-  World Rapid Chess Championship 2015, checking squares of queens (how many times a queen delivered a check on a square)
-  <br>
-  <button id="w-btn" class="button button-primary">White Queens</button>
-  <button id="b-btn" class="button">Black Queens</button>
-</div>
-
-
-<!-- TRY MY OWN DATA -->
-  <div id="heatmap-rob" class="cdv-heatmap"></div>
-  <div class="caption">MY ATTEMPT AT PULLING MY OWN CHESS DATA</div>
-
-
-<div class="cdv-move-paths" id="movepaths2">
+  <!-- THIRD EXAMPLE QUEEN THINGS-->
+  <div id="heatmap-example-2" class="cdv-heatmap"></div>
+  <div class="caption">
+    World Rapid Chess Championship 2015, checking squares of queens (how many times a queen delivered a check on a square)
+    <br>
+    <button id="w-btn" class="button button-primary">White Queens</button>
+    <button id="b-btn" class="button">Black Queens</button>
   </div>
 
+  <!-- TRY MY OWN DATA -->
+  <div id="heatmap-rob" class="cdv-heatmap"></div>
+  <div class="caption">MY ATTEMPT AT PULLING MY OWN CHESS DATA</div>
+  <div class="cdv-move-paths" id="movepaths2">
+  </div>
 
-<font size="20">Carlsen Dataset</font>
+  <!-- Carlsen Example -->
+  <font size="20">Carlsen Dataset</font>
 
-<div class="cdv-move-paths" id="movepaths-carlsen">
+  <div class="cdv-move-paths" id="movepaths-carlsen">
   </div>
 
   <div id="heatmap-example-carlsen" class="cdv-heatmap"></div>

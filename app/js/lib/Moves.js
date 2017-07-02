@@ -1,3 +1,5 @@
+// source: https://github.com/ebemunk/chess-dataviz/blob/master/scripts/lib/Moves.js
+
 'use strict';
 
 const _ = require('lodash');

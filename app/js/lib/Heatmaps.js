@@ -1,3 +1,5 @@
+// source: https://github.com/ebemunk/chess-dataviz/blob/master/scripts/lib/Heatmaps.js
+
 'use strict';
 
 let _ = require('lodash');

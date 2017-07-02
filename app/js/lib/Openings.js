@@ -1,3 +1,5 @@
+// source: https://github.com/ebemunk/chess-dataviz/blob/master/scripts/lib/Openings.js
+
 'use strict';
 
 let _ = require('lodash');
