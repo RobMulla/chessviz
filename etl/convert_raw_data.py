@@ -1,41 +1,54 @@
 #!/usr/bin/env python3
 
-from helperchess import HelperChess
+# Imports
+import argparse
+from chessviz import ChessMatch
 import chess.pgn
 import csv
-import bz2
+import sys
 
+# Set up argument parser
+parser = argparse.ArgumentParser(description='Process PGN game files into a more usable format.')
+parser.add_argument('--game_file', type=str,
+                    help='a .pgn file with chess match data.')
+args = parser.parse_args()
 
-SAN_REGEX = '([A-Z]?[db]?[A-Z]?[x]?[a-z][0-9][#=+]?)|(O-O-O)|(O-O)'
+sys.stdout.write('\nProcessing game file {}\n'.format(args.game_file))
 
-#pgn = open('data/fics/testfile.pgn')
-#pgn = open('testfile.pgn')
-#pgn = bz2.open('ficsgames.pgn.bz2', 'rb')
-pgn = open('ficsgames.pgn')
-
-# Read in next game in file, EOF returns None
-game = chess.pgn.read_game(pgn)
-
-moves = game.main_line()
+# Open connection to a .pgn file with some games
+pgn = open(args.game_file)
 
 with open('chessdata.csv', 'w') as f:
+    # Set up a CSV writer
     writer = csv.writer(f, dialect='unix')
+
+    # Write a header row
+    writer.writerow(['game_number', 'white', 'move_number',
+                     'piece', 'move_from', 'move_to', 'taken'])
+
+    # Read in the first game
+    game = chess.pgn.read_game(pgn)
+
+    # Parse this and all further games, append into the CSV
+    gameNum = 1
     while game is not None:
-        #print(game.headers)
-        #print('new game:')
+        sys.stdout.write('Processing game {}...'.format(str(gameNum)))
         moves = game.main_line()
-        board = HelperChess()
+        board = ChessMatch()
         moveNum = 1
         white = 1
         for move in moves:
-            #print(move)
+            # Grab moves and update row
             move_from = move.uci()[0:2]
             move_to = move.uci()[2:4]
             piece, taken = board.handle_move(move_from, white, move_to)
-            writer.writerow([game.headers['FICSGamesDBGameNo'], white, moveNum, piece, move_from, move_to, taken])
-            #print(game.headers['FICSGamesDBGameNo'], white, moveNum, piece, move_from, move_to, taken)
+            writer.writerow([game.headers['FICSGamesDBGameNo'], white, moveNum,
+                             piece, move_from, move_to, taken])
+
+            # Flip back and forth between white and black
             white = (white + 1) % 2
             moveNum += 1
+
+        sys.stdout.write('DONE\n')
         game = chess.pgn.read_game(pgn)
-
-
+        gameNum += 1

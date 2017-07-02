@@ -11,9 +11,19 @@ class ChessMatch:
         self.board = {}
         self.initialize_board()
 
+    def __str__(self):
+        print('pretty printing coming soon!')
+
     def initialize_board(self):
         """
         Create a representation of a chess board.
+
+        We represent the board as  dictionary of the form
+        {"space_id":"piece_id"}.
+
+        References:
+        [1] http://bit.ly/2ubo5bn
+        [2] https://en.wikipedia.org/wiki/Algebraic_notation_(chess)
         """
         self.board = {}
         for number in [2, 7]:

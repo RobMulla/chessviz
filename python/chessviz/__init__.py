@@ -1,1 +1,1 @@
-from helperchess.py import ChessMatch
+from chessviz.helperchess import ChessMatch

@@ -1,8 +1,12 @@
 
 # data
 app/data/*.pgn
+app/data/*.db
+etl/*.csv
+etl/*.pgn
 
 # python stuff
 python/build/
 python/chessviz.egg-info/
 python/dist/
+python/chessviz/__pycache__
