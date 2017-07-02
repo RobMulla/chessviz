@@ -2,7 +2,7 @@
 
 # Imports
 import argparse
-from chessviz import ChessMatch
+from chessviz import ChessGame
 import chess.pgn
 import csv
 import sys
@@ -34,7 +34,7 @@ with open('chessdata.csv', 'w') as f:
     while game is not None:
         sys.stdout.write('Processing game {}...'.format(str(gameNum)))
         moves = game.main_line()
-        board = ChessMatch()
+        board = ChessGame()
         moveNum = 1
         white = 1
         for move in moves:

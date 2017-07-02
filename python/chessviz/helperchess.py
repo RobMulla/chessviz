@@ -3,7 +3,7 @@ Class to represent a chess game.
 """
 
 
-class ChessMatch:
+class ChessGame:
 
     def __init__(self):
         self.letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
