@@ -1,0 +1,255 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <div class="top">
+    Chess Visualization
+  </div>
+
+  <title class='title'>Chess Viz Final Project</title>
+  <meta name="description" content="W209 Final Project">
+  <meta name="author" content="Students">
+
+  <link href="dist/ChessDataViz.css" rel="stylesheet"> <!-- For chess viz -->
+
+</head>
+
+<body style="background-color:#BFC9CA;">
+
+  <script src="https://d3js.org/d3.v3.min.js"></script> <!-- D3 -->
+  <!--script src="dist/ChessDataViz.min.js"></script>  <!-- For chess viz, using non-min for now -->
+  <script src="dist/ChessDataViz.js"></script>  <!-- For chess viz -->
+  <script src="http://d3js.org/queue.v1.min.js"></script> <!-- for queue -->
+
+  <!-- <script src="ChessScript.js"></script> -->
+
+  <!-- DROPDOWN MENUS-->
+  <div class="left">
+    <div class="select-style">
+      <p> Select Viz Type:</p>
+      <select id="viz_type" name="viz_type">
+        <option value ="MovePaths" selected>Move Paths</option>
+        <option value ="HeatMap">Heatmap</option>
+      </select>​
+    </div>
+
+    <p> Choose Grand Master:</p>
+    <div class="select-style">
+      <select id="json_sources" name="json_sources">
+        <option value ="./data/json/Kasparov_stats.json" selected>Kasparov</option>
+        <option value ="./data/json/Carlsen_stats.json">Carlsen</option>
+        <option value ="./data/json/Fischer_stats.json">Fischer</option>
+        <option value ="./data/json/Karpov_stats.json">Karpov</option>
+        <option value ="./data/json/Capablanca_stats.json">Capablanca</option>
+        <option value ="./data/json/Lasker_stats.json">Lasker</option>
+        <option value ="./data/json/Morphy_stats.json">Morphy</option>
+        <option value ="./data/json/Kramnik_stats.json">Kramnik</option>
+        <option value ="./data/json/Botvinnik_stats.json">Botvinnik</option>
+        <option value ="./data/json/test.json">Test</option>
+
+      </select>​
+    </div>
+
+    <p> If you selected move paths, change piece here:</p>
+
+    <div class="select-style">
+      <select id="piece_selector" name="piece_selector">
+        <option value ="a2" selected>a2</option>
+        <option value ="b2">b2</option>
+        <option value ="c2">c2</option>
+        <option value ="d2">d2</option>
+        <option value ="e2">e2</option>
+        <option value ="f2">f2</option>
+        <option value ="g2">g2</option>
+        <option value ="h2">h2</option>
+        <option value ="a7">a7</option>
+        <option value ="b7">b7</option>
+        <option value ="c7">c7</option>
+        <option value ="d7">d7</option>
+        <option value ="e7">e7</option>
+        <option value ="f7">f7</option>
+        <option value ="g7">g7</option>
+        <option value ="h7">h7</option>
+        <!-- Major Pieces -->
+        <option value ="Nb1">Nb1</option>
+        <option value ="Nb8">Nb8</option>
+        <option value ="Ng1">Ng1</option>
+        <option value ="Nb1">Ng8</option>
+        <option value ="Bc1">Bc1</option>
+        <option value ="Bc8">Bc8</option>
+        <option value ="Bf1">Bf1</option>
+        <option value ="Bf8">Bf8</option>
+        <option value ="Ra1">Ra1</option>
+        <option value ="Ra8">Ra8</option>
+        <option value ="Rh1">Rh1</option>
+        <option value ="Rh8">Rh8</option>
+        <option value ="Qd1">Qd1</option>
+        <option value ="Qd8">Qd8</option>
+        <option value ="Ke1">Ke1</option>
+        <option value ="Ke8">Ke8</option>
+      </dv>
+
+      <div class="select-style">
+      </select>​
+      <p> If you selected heatmap, choose player color and piece here:</p>
+      <select id="heatmap_color" name="heatmap_color">
+        <option value ="w" selected>white</option>
+        <option value ="b">black</option>
+      </select>​
+    </div>
+
+    <div class="select-style">
+      <select id="heatmap_piece" name="heatmap_piece">
+        <option value ="all" selected>all</option>
+        <option value ="k">King</option>
+        <option value ="q">Queen</option>
+        <option value ="r">Rook</option>
+        <option value ="b">Bishop</option>
+        <option value ="p">Pawn</option>
+      </select>​
+    </div>
+
+  </div>
+  <!-- MAIN BOARD -->
+
+  <div class="main">
+    <div id="chess_board" class="cdv-move-paths"></div>
+
+    <div>
+
+
+      <script>
+        var dropdown = d3.select("#json_sources")
+        var pieceselction = d3.select("#piece_selector")
+        var hmcolor = d3.select("#heatmap_color")
+        var hmpiece = d3.select("#heatmap_piece")
+        var viztypeselector = d3.select("#viz_type")
+
+        var change = function() {
+          var source = dropdown.node().options[dropdown.node().selectedIndex].value;
+          var piece = pieceselction.node().options[pieceselction.node().selectedIndex].value;
+          var heatmapcolor = hmcolor.node().options[hmcolor.node().selectedIndex].value;
+          var heatmappiece = hmpiece.node().options[hmpiece.node().selectedIndex].value;
+          var viztype = viztypeselector.node().options[viztypeselector.node().selectedIndex].value;
+
+          console.log("PIECE SELECTION:",piece)
+          d3.json(source, function(json) {
+            console.log("PLAYER SELECTION:",source)
+            console.log("HEATMAP PIECE", heatmappiece)
+            console.log("HEATMAP COLOR",heatmapcolor)
+            console.log("Viz Type:",viztype)
+
+            d3.json(source, function(err, data) {
+
+              var defaultMovePathsOptions = {
+                width: 700,
+                margin: 20,
+                accessor: piece,
+                binSize: 1,
+                pointRandomizer: d3.random.normal(3, 1),
+                bezierRandomizer: d3.random.normal(12, 4),
+                bezierScaleFactor: 2
+              };
+
+              var defaultHeatmapOptions = {
+                width: 700,
+                margin: 20,
+                accessor: {
+                  piece: heatmappiece,
+                  color: heatmapcolor
+                },
+                sizeScale: true,
+                colorScale: ['blue', 'red']
+              };
+              if  (viztype == 'MovePaths') {
+                console.log("IN MOVE PATHS")
+                var chessboardviz = new ChessDataViz.MovePaths('#chess_board', defaultMovePathsOptions, data.moves);
+              }
+              else {
+                var chessboardviz = new ChessDataViz.HeatMap('#chess_board', defaultHeatmapOptions, data.heatmaps.squareUtilization);
+                var tip = d3.tip()
+                .attr('class', 'd3-tip')
+                .offset([25, -6])
+                .html(function(d) {
+                  return d;
+                });
+
+                heatmapExample2.dispatch.on('mouseenter', tip.show);
+                heatmapExample2.dispatch.on('mouseleave', tip.hide);
+                heatmapExample2.dataContainer.call(tip);
+
+                var wButton = d3.select('#w-btn');
+                var bButton = d3.select('#b-btn');
+
+                wButton.on('click', function() {
+                  heatmapExample2.options({
+                    accessor: {
+                      color: 'w',
+                      piece: 'q'
+                    }
+                  });
+
+                  wButton.classed('button-primary', true);
+                  bButton.classed('button-primary', false);
+                });
+
+                bButton.on('click', function() {
+                  heatmapExample2.options({
+                    accessor: {
+                      color: 'b',
+                      piece: 'q'
+                    }
+                  });
+
+                  wButton.classed('button-primary', false);
+                  bButton.classed('button-primary', true);
+                });
+
+
+          }
+
+          // var chessboardviz = new ChessDataViz.MovePaths('#chess_board', defaultOptions, data.moves);
+
+        });
+        })
+}
+
+dropdown.on("change", change)
+pieceselction.on("change", change)
+hmcolor.on("change", change)
+hmpiece.on("change", change)
+viztypeselector.on("change", change)
+
+
+change(); //trigger json on load
+
+</script>
+
+</body>
+
+
+<style type="text/css">
+  .top {
+    position:absolute;
+    left:0; right:0;
+    height: 92px;
+  }
+  .left {
+    position:absolute;
+    left:0; top:92px; bottom: 0;
+    width: 178px;
+  }
+  .main {
+    position: absolute;
+    left:178px; top:92px; right:0; bottom:0;
+  }
+
+  .top { background: #587e76;
+    font-family: Serif;
+    font-size: 50px;
+    text-align: center}
+    .left { background: #c6bcb6;
+      font-family: Serif}
+    </style>
