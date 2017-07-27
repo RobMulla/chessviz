@@ -4,13 +4,24 @@ This repo holds all files related to `chessviz`, and interactive visualization o
 
 ## Contents
 1. [Target Use Case](#usecase)
-2. [Data Source](#datasource)
-3. [How to Create an App Instance](#appdirections)
-3. [References](#references)
+2. [Repo Structure](#repo)
+3. [Data Source](#datasource)
+4. [How to Create an App Instance](#appdirections)
+5. [References](#references)
 
 ## Target Use Case <a name="usecase"></a>
 
 [Check out our mid-term presentation](https://docs.google.com/presentation/d/1ETH_qVW7gRb50b5nWkVr1sMjRkvGRLXMzrisy-z7-YI/edit?usp=sharing)
+
+## Repo Structure <a name="repo"></a>
+
+This repo is structured as follows:
+
+- `app/` = all files necessary to run the app (JS, CSS, HTML, and data)
+- `app/<language>` = JS, CSS, and HTML code written by the project authors
+- `app/<language>/lib/` = JS, CSS, and HTML code from external sources
+- `setup/` = all files needed to seed a new directory for running the app. The scripts in this directory handle installing dependencies and pulling data. The directory assumes a Unix-alike operating system, so Windows users should use it with [Ubuntu on Windows 10]() or in a VM
+- `sandbox/` = workspace for experimentation. Not needed to run the applicaiton.
 
 ## Data Source <a name="datasource"></a>
 
@@ -69,7 +80,11 @@ We used the `python-chess` package to read in the PGN file for initial processin
 
 ## How to Create an App Instance
 
-TBD
+Begin by cloning this repo.
+
+```
+git clone https://github.com/jameslamb/chessviz
+```
 
 ## References <a name="references"></a>
 
