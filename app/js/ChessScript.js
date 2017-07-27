@@ -1,6 +1,6 @@
 //Create Chess Boad
 var dropdown = d3.select("#json_sources")
-d3.json('./data/json/Adams_stats.json', function(err, data) {
+d3.json('../data/json/stats/Adams_stats.json', function(err, data) {
  var chessboardviz = new ChessDataViz.MovePaths('#chess_board', null, data.moves);
 });
 

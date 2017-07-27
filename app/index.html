@@ -12,7 +12,7 @@
   <meta name="description" content="W209 Final Project">
   <meta name="author" content="Students">
 
-  <link href="dist/ChessDataViz.css" rel="stylesheet"> <!-- For chess viz -->
+  <link href="./js/lib/ChessDataViz.css" rel="stylesheet"> <!-- For chess viz -->
 
 </head>
 
@@ -20,7 +20,7 @@
 
   <script src="https://d3js.org/d3.v3.min.js"></script> <!-- D3 -->
   <!--script src="dist/ChessDataViz.min.js"></script>  <!-- For chess viz, using non-min for now -->
-  <script src="dist/ChessDataViz.js"></script>  <!-- For chess viz -->
+  <script src="./js/lib/ChessDataViz.js"></script>  <!-- For chess viz -->
   <script src="http://d3js.org/queue.v1.min.js"></script> <!-- for queue -->
 
   <!-- <script src="ChessScript.js"></script> -->
@@ -38,16 +38,16 @@
     <p> Choose Grand Master:</p>
     <div class="select-style">
       <select id="json_sources" name="json_sources">
-        <option value ="./data/json/Kasparov_stats.json" selected>Kasparov</option>
-        <option value ="./data/json/Carlsen_stats.json">Carlsen</option>
-        <option value ="./data/json/Fischer_stats.json">Fischer</option>
-        <option value ="./data/json/Karpov_stats.json">Karpov</option>
-        <option value ="./data/json/Capablanca_stats.json">Capablanca</option>
-        <option value ="./data/json/Lasker_stats.json">Lasker</option>
-        <option value ="./data/json/Morphy_stats.json">Morphy</option>
-        <option value ="./data/json/Kramnik_stats.json">Kramnik</option>
-        <option value ="./data/json/Botvinnik_stats.json">Botvinnik</option>
-        <option value ="./data/json/test.json">Test</option>
+        <option value ="./data/json/stats/Kasparov_stats.json" selected>Kasparov</option>
+        <option value ="./data/json/stats/Carlsen_stats.json">Carlsen</option>
+        <option value ="./data/json/stats/Fischer_stats.json">Fischer</option>
+        <option value ="./data/json/stats/Karpov_stats.json">Karpov</option>
+        <option value ="./data/json/stats/Capablanca_stats.json">Capablanca</option>
+        <option value ="./data/json/stats/Lasker_stats.json">Lasker</option>
+        <option value ="./data/json/stats/Morphy_stats.json">Morphy</option>
+        <option value ="./data/json/stats/Kramnik_stats.json">Kramnik</option>
+        <option value ="./data/json/stats/Botvinnik_stats.json">Botvinnik</option>
+        <option value ="./data/json/stats/test.json">Test</option>
 
       </select>​
     </div>
@@ -252,4 +252,4 @@ change(); //trigger json on load
     text-align: center}
     .left { background: #c6bcb6;
       font-family: Serif}
-    </style>
+</style>
