@@ -95,7 +95,7 @@
         <option value ="Qd8">Qd8</option>
         <option value ="Ke1">Ke1</option>
         <option value ="Ke8">Ke8</option>
-      </dv>
+      </div>
 
       <div class="select-style">
       </select>​
@@ -126,7 +126,7 @@
     <div>
 
       <script>
-        
+
         // create d3 selectors for the various dropdown elements in the DOm
         var dropdown = d3.select("#json_sources")
         var pieceselection = d3.select("#piece_selector")
@@ -135,13 +135,15 @@
         var viztypeselector = d3.select("#viz_type")
 
         var change = function() {
-          
+
           // Grab current state of the dropdowns
           var source = dropdown.node().options[dropdown.node().selectedIndex].value;
           var piece = pieceselection.node().options[pieceselection.node().selectedIndex].value;
           var heatmapcolor = hmcolor.node().options[hmcolor.node().selectedIndex].value;
           var heatmappiece = hmpiece.node().options[hmpiece.node().selectedIndex].value;
           var viztype = viztypeselector.node().options[viztypeselector.node().selectedIndex].value;
+
+          // Grab current state of the menu?
 
           console.log("PIECE SELECTION:",piece)
           d3.json(source, function(json) {
@@ -216,22 +218,74 @@
                   bButton.classed('button-primary', true);
                 });
 
-          }
+              }
 
           // var chessboardviz = new ChessDataViz.MovePaths('#chess_board', defaultOptions, data.moves);
 
         });
-        })
-}
+          })
 
-dropdown.on("change", change)
-pieceselection.on("change", change)
-hmcolor.on("change", change)
-hmpiece.on("change", change)
-viztypeselector.on("change", change)
+        }
+
+        dropdown.on("change", change)
+        pieceselection.on("change", change)
+        hmcolor.on("change", change)
+        hmpiece.on("change", change)
+        viztypeselector.on("change", change)
 
 change(); //trigger json on load
 
 </script>
+
+</div>
+
+<div id="piece_icons">
+<img src="/img/pieces.png" alt="pieces" usemap="#piecesmap" align="middle" >
+
+<map name="piecesmap">
+    <area alt="a2" title="" href="#piece_selector" shape="rect" coords="2,4,102,99" onclick="pieceSelect(alt)" />
+    <area alt="b2" title="" href="#" shape="rect" coords="104,5,199,99" onclick="pieceSelect(alt)" />
+    <area alt="c2" title="" href="#" shape="rect" coords="201,5,298,98" onclick="pieceSelect(alt)" />
+    <area alt="d2" title="" href="#" shape="rect" coords="299,4,397,99" onclick="pieceSelect(alt)" />
+    <area alt="e2" title="" href="#" shape="rect" coords="398,2,497,100" onclick="pieceSelect(alt)" />
+    <area alt="f2" title="" href="#" shape="rect" coords="498,3,595,98" onclick="pieceSelect(alt)" />
+    <area alt="g2" title="" href="#" shape="rect" coords="596,2,694,98" onclick="pieceSelect(alt)" />
+    <area alt="h2" title="" href="#" shape="rect" coords="697,5,792,96" onclick="pieceSelect(alt)" />
+    <area alt="Ra1" title="" href="#" shape="rect" coords="2,103,102,196" onclick="pieceSelect(alt)" />
+    <area alt="Nb1" title="" href="#" shape="rect" coords="105,101,200,194" onclick="pieceSelect(alt)" />
+    <area alt="Bc1" title="" href="#" shape="rect" coords="201,100,298,194" onclick="pieceSelect(alt)" />
+    <area alt="Ke1" title="" href="#" shape="rect" coords="300,100,398,195" onclick="pieceSelect(alt)" />
+    <area alt="Qd1" title="" href="#" shape="rect" coords="399,101,496,195" onclick="pieceSelect(alt)" />
+    <area alt="Bf1" title="" href="#" shape="rect" coords="499,101,595,195" onclick="pieceSelect(alt)" />
+    <area alt="Ng1" title="" href="#" shape="rect" coords="597,100,695,195" onclick="pieceSelect(alt)" />
+    <area alt="Rh1" title="" href="#" shape="rect" coords="697,100,791,194" onclick="pieceSelect(alt)" />
+    <area alt="a7" title="" href="#" shape="rect" coords="3,198,101,291" onclick="pieceSelect(alt)" />
+    <area alt="b7" title="" href="#" shape="rect" coords="103,199,201,290" onclick="pieceSelect(alt)" />
+    <area alt="c7" title="" href="#" shape="rect" coords="203,198,297,291" onclick="pieceSelect(alt)" />
+    <area alt="d7" title="" href="#" shape="rect" coords="299,198,397,292" onclick="pieceSelect(alt)" />
+    <area alt="e7" title="" href="#" shape="rect" coords="399,197,498,292" onclick="pieceSelect(alt)" />
+    <area alt="f7" title="" href="#" shape="rect" coords="499,197,595,291" onclick="pieceSelect(alt)" />
+    <area alt="g7" title="" href="#" shape="rect" coords="597,198,695,292" onclick="pieceSelect(alt)" />
+    <area alt="h7" title="" href="#" shape="rect" coords="696,198,795,291" onclick="pieceSelect(alt)" />
+    <area alt="Ra8" title="" href="#" shape="rect" coords="3,294,102,386" onclick="pieceSelect(alt)" />
+    <area alt="Nb8" title="" href="#" shape="rect" coords="102,293,199,384" onclick="pieceSelect(alt)" />
+    <area alt="Bc8" title="" href="#" shape="rect" coords="201,293,298,384" onclick="pieceSelect(alt)" />
+    <area alt="Qd8" title="" href="#" shape="rect" coords="299,294,397,384" onclick="pieceSelect(alt)" />
+    <area alt="Ke8" title="" href="#" shape="rect" coords="400,294,498,384" onclick="pieceSelect(alt)" />
+    <area alt="Bf8" title="" href="#" shape="rect" coords="501,295,596,384" onclick="pieceSelect(alt)" />
+    <area alt="Ng8" title="" href="#" shape="rect" coords="599,294,695,384" onclick="pieceSelect(alt)" />
+    <area alt="Rh8" title="" href="#" shape="rect" coords="697,294,792,386" onclick="pieceSelect(alt)" />
+
+</map>
+
+<script type="text/javascript" name="click piece script">
+function pieceSelect(myPiece){
+  console.log("My Piece is: ",myPiece)
+  document.getElementById('piece_selector').value=myPiece
+  change();
+}
+
+</script>
+</div>
 
 </body>
