@@ -1,3 +1,8 @@
+/* body settings */
+body {
+  background-color: #ffffff;
+}
+
 .cdv-heatmap {
   text-align: center;
 }
