@@ -12,18 +12,23 @@
   <meta name="description" content="W209 Final Project">
   <meta name="author" content="Students">
 
+  <!-- Our CSS -->
   <link href="./css/chessviz.css" rel="stylesheet"> <!-- For chess viz -->
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
 <body>
 
+  <!-- Load JS libraries -->
   <script src="https://d3js.org/d3.v3.min.js"></script> <!-- D3 -->
-  <!--script src="dist/ChessDataViz.min.js"></script>  For chess viz, using non-min for now -->
   <script src="./js/lib/ChessDataViz.js"></script>  <!-- For chess viz -->
   <script src="http://d3js.org/queue.v1.min.js"></script> <!-- for queue -->
-
-  <!-- <script src="ChessScript.js"></script> -->
 
   <!-- DROPDOWN MENUS-->
   <div class="left">
@@ -72,6 +77,7 @@
         <option value ="f7">f7</option>
         <option value ="g7">g7</option>
         <option value ="h7">h7</option>
+        
         <!-- Major Pieces -->
         <option value ="Nb1">Nb1</option>
         <option value ="Nb8">Nb8</option>
@@ -112,14 +118,16 @@
     </div>
 
   </div>
+  
   <!-- MAIN BOARD -->
-
   <div class="main">
     <div id="chess_board" class="cdv-move-paths"></div>
 
     <div>
 
       <script>
+        
+        // create d3 selectors for the various dropdown elements in the DOm
         var dropdown = d3.select("#json_sources")
         var pieceselection = d3.select("#piece_selector")
         var hmcolor = d3.select("#heatmap_color")
@@ -127,6 +135,8 @@
         var viztypeselector = d3.select("#viz_type")
 
         var change = function() {
+          
+          // Grab current state of the dropdowns
           var source = dropdown.node().options[dropdown.node().selectedIndex].value;
           var piece = pieceselection.node().options[pieceselection.node().selectedIndex].value;
           var heatmapcolor = hmcolor.node().options[hmcolor.node().selectedIndex].value;
@@ -205,7 +215,6 @@
                   wButton.classed('button-primary', false);
                   bButton.classed('button-primary', true);
                 });
-
 
           }
 

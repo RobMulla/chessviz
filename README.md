@@ -93,4 +93,6 @@ git clone https://github.com/jameslamb/chessviz
 3. [Grandmaster wikipedia](https://en.wikipedia.org/wiki/Grandmaster_(chess))
 4. [python-chess library](http://python-chess.readthedocs.io/en/latest/pgn.html)
 5. [Portable Game Notation Wikipedia](https://en.wikipedia.org/wiki/Portable_Game_Notation)
+6. [Getting Started with Bootstrap](https://v4-alpha.getbootstrap.com/layout/grid/)
+7. [How to Include Bootstrap in a Project](https://www.codecademy.com/articles/bootstrap)
 
