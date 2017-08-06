@@ -1,7 +1,7 @@
 
 var makechart = function() {
 
-    
+
 
 
     $(document).ready(function() {
@@ -17,8 +17,12 @@ var makechart = function() {
                 renderTo: 'compare_players',
                 type: 'line'
             },
-            series: [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
-            {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            series: [{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+            {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
             {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
             {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
             {},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
@@ -52,7 +56,7 @@ var makechart = function() {
         var piecetype = document.getElementById('heatmap_piece');
         console.log("JSON",piecetype.options[piecetype.selectedIndex].value)
 
-        all_data = data['all']['white_moves_deviation']
+        all_data = data['b']['white_moves_deviation']
 
         // TRY TO MAKE AN ARRAY CONTAINING THE DATA
 
@@ -66,7 +70,7 @@ var makechart = function() {
         console.log("allplayersArray",allplayersArray)
         console.log("d3.values(allplayersArray)",d3.values(allplayersArray[0]))
 
-        for (i = 0; i < 213; i++){
+        for (i = 0; i < 238; i++){
             options.series[i].name = allplayersArray[i].name
             options.series[i].data = allplayersArray[i]
         }
