@@ -1,5 +1,3 @@
-
-
 var width = 400;
 var height = 200;
 var bPawnImg = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg';
@@ -257,7 +255,8 @@ var wKingImg = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.
               .attr("width", width / 8)
               .attr("height", height / 4)
               .on('click', function(d) {console.log(d.piece);})
-              .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)});
+              .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)})
+              // .on('click', function(d){makechart()});
 
         
         }

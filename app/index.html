@@ -26,6 +26,9 @@
   <!-- Highcharts -->
   <script src="https://code.highcharts.com/highcharts.js"> </script>
 
+  <script type="text/javascript" src="./js/compareChart.js"> </script>
+
+
 
 </head>
 
@@ -58,6 +61,7 @@
         <option value ="./data/json/stats/Morphy_stats.json">Morphy</option>
         <option value ="./data/json/stats/Kramnik_stats.json">Kramnik</option>
         <option value ="./data/json/stats/Botvinnik_stats.json">Botvinnik</option>
+        <option value ="./data/json/stats/TorreRepetto_stats.json">TorreRepetto</option>
       </select>​
     </div>
 
@@ -141,18 +145,8 @@
 
 <div id="compare_players" ></div>
 
-<script type="text/javascript" src="./js/compareChart.js"> </script>
 
-<script type="text/javascript" name="click piece script">
-function pieceSelect(movePathPiece, heatMapPiece, playerColor){
-  console.log("Movepath piece is: ",movePathPiece," Heatmap piece is: ",heatMapPiece, " Player color is: ",playerColor)
-  document.getElementById('piece_selector').value=movePathPiece
-  document.getElementById('heatmap_piece').value=heatMapPiece
-  document.getElementById('heatmap_color').value=playerColor
-  change();
-}
 
-</script>
 </div>
 
 </body>
