@@ -1,6 +1,5 @@
 // create d3 selectors for the various dropdown elements in the DOm
 var dropdown = d3.select("#json_sources")
-console.log(dropdown)
 var pieceselection = d3.select("#piece_selector")
 var hmcolor = d3.select("#heatmap_color")
 var hmpiece = d3.select("#heatmap_piece")

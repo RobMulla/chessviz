@@ -1,0 +1,40 @@
+Chess Viz Data Organization
+Json file
+
+Player Name –
+-	MetaData
+	o	Full Name
+	o	Birthday
+	o	Death
+	o	Wiki Page
+-	BoadData
+	- asBlack
+			o	Heatmaps
+			•	squareUtilization
+			•	p
+				o	w
+				o	b
+			•	N
+			•	B
+			•	R
+			•	Q
+			•	K
+			•	All
+		o	Moves
+			•	a2
+			•	a2-a4
+			•	a2-a3
+			•	etc.
+			•	a7
+			•	a7-a5
+			•	etc
+	- asWhite
+		o	Heatmaps
+		o	Moves
+
+-	ComparisonToAverage
+	o	Heatmaps
+		•	squareUtilization
+	o	Moves
+-	Wierdness
+	o By Piece
