@@ -1,4 +1,4 @@
-var width = 200;
+var width = 400;
 var height = 200;
 var bPawnImg = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg';
 var bBishopImg = 'https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg';
