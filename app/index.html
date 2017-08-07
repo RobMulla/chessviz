@@ -5,7 +5,7 @@
   <meta charset="utf-8">
 
   <div class="top">
-    Chess Visualization
+    Grab Master Uniqueness
   </div>
 
   <title class='title'>Chess Viz Final Project</title>
@@ -23,12 +23,11 @@
   <!-- Bootstrap JS -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!-- Highcharts -->
+  <!-- Highcharts JS-->
   <script src="https://code.highcharts.com/highcharts.js"> </script>
 
+  <!-- Comparison chart JS -->
   <script type="text/javascript" src="./js/compareChart.js"> </script>
-
-
 
 </head>
 
@@ -132,23 +131,22 @@
   
   <!-- MAIN BOARD -->
   <div class="main">
-    <div id="chess_board" class="cdv-move-paths"></div>
+    
+    <div id="chess_board" class="cdv-move-paths">
+    </div>
 
     <div>
-
-
-  <script type="text/javascript" src="./js/myBoard.js"></script>
-
-</div>
+      <script type="text/javascript" src="./js/myBoard.js"></script>
+    </div>
   
-    <div id="piecetable"></div>
+    <div id="piecetable">
+      
+    </div>
     <script type="text/javascript" src='./js/pieceselector.js'> </script>
 
+    <div id="compare_players">      
+    </div>
 
-<div id="compare_players" ></div>
-
-
-
-</div>
+  </div>
 
 </body>

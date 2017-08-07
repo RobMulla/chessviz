@@ -1,9 +1,6 @@
 
 var makechart = function() {
 
-
-
-
     $(document).ready(function() {
 
         var processed_json = new Array();   
