@@ -5,6 +5,14 @@ body {
   background-color: #ffffff;
 }
 
+/***********************/
+/** Boostrap sections **/
+/***********************/
+.row {
+  border-style: solid;
+  border-color: black;
+}
+
 /*************/
 /** Heatmap **/
 /*************/

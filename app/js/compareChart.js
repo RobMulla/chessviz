@@ -47,33 +47,33 @@ var makechart = function() {
             }
         };
 
+        // Read in all the comparison data
         $.getJSON('./data/master_player_comparison.json', function(data) {
 
-        // console.log(d3.selectall(heatmap_piece))
-        var piecetype = document.getElementById('heatmap_piece');
-        console.log("JSON",piecetype.options[piecetype.selectedIndex].value)
+            var piecetype = document.getElementById('heatmap_piece');
+            console.log("JSON",piecetype.options[piecetype.selectedIndex].value)
 
-        all_data = data['b']['white_moves_deviation']
+            all_data = data['b']['white_moves_deviation']
 
-        // TRY TO MAKE AN ARRAY CONTAINING THE DATA
+            // TRY TO MAKE AN ARRAY CONTAINING THE DATA
 
-        var allplayersArray = []; // This will be the resulting array
-        for(var key in all_data) {
-            var entry = d3.values(all_data[key]); // values
-            entry.name = key; // key?
-            allplayersArray.push(entry)
-        }
+            var allplayersArray = []; // This will be the resulting array
+            for(var key in all_data) {
+                var entry = d3.values(all_data[key]); // values
+                entry.name = key; // key?
+                allplayersArray.push(entry)
+            }
 
-        console.log("allplayersArray",allplayersArray)
-        console.log("d3.values(allplayersArray)",d3.values(allplayersArray[0]))
+            console.log("allplayersArray",allplayersArray)
+            console.log("d3.values(allplayersArray)",d3.values(allplayersArray[0]))
 
-        for (i = 0; i < 238; i++){
-            options.series[i].name = allplayersArray[i].name
-            options.series[i].data = allplayersArray[i]
-        }
-        
-        var chart = new Highcharts.Chart(options);
-    });
+            for (i = 0; i < 238; i++){
+                options.series[i].name = allplayersArray[i].name
+                options.series[i].data = allplayersArray[i]
+            }
+            
+            var chart = new Highcharts.Chart(options);
+        });
 
     });
 }
