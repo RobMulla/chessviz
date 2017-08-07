@@ -245,7 +245,6 @@ var drawPieceTable = function(data) {
         .append("svg")
         .attr("width", width)
         .attr("height", height);
-    //console.log(data);
     
     svg.selectAll("img")
       .data(data)

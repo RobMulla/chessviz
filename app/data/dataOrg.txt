@@ -7,7 +7,7 @@ Player Name –
 	o	Birthday
 	o	Death
 	o	Wiki Page
--	BoadData
+-	BoardData
 	- asBlack
 			o	Heatmaps
 			•	squareUtilization

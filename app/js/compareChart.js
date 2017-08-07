@@ -71,7 +71,7 @@ var makechart = function() {
             options.series[i].name = allplayersArray[i].name
             options.series[i].data = allplayersArray[i]
         }
-        // options.series[0].data = d3.values(adams_data);
+        
         var chart = new Highcharts.Chart(options);
     });
 
