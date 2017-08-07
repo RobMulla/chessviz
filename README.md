@@ -88,11 +88,16 @@ git clone https://github.com/jameslamb/chessviz
 
 ## References <a name="references"></a>
 
+### Chess Stuff
 1. [chess-dataviz D3 library and examples](https://ebemunk.com/chess-dataviz/)
 2. [FICS Games Database](http://www.ficsgames.org/)
 3. [Grandmaster wikipedia](https://en.wikipedia.org/wiki/Grandmaster_(chess))
 4. [python-chess library](http://python-chess.readthedocs.io/en/latest/pgn.html)
 5. [Portable Game Notation Wikipedia](https://en.wikipedia.org/wiki/Portable_Game_Notation)
-6. [Getting Started with Bootstrap](https://v4-alpha.getbootstrap.com/layout/grid/)
-7. [How to Include Bootstrap in a Project](https://www.codecademy.com/articles/bootstrap)
+
+### Boostrap
+1. [Getting Started with Bootstrap](https://v4-alpha.getbootstrap.com/layout/grid/)
+2. [How to Include Bootstrap in a Project](https://www.codecademy.com/articles/bootstrap)
+3. [W3Schools tutorial](https://www.w3schools.com/bootstrap/)
+
 

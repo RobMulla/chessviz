@@ -1,23 +1,13 @@
-/* body settings */
+/***********/
+/** Body **/
+/***********/
 body {
   background-color: #ffffff;
 }
 
-/* Top rectangular div with the title */
-/* TODO (jaylamb20@gmail.com):
-    remove this nav altogether */
-.top {
-  position: absolute;
-  left: 0; 
-  right: 0;
-  height: 92px;
-  background: #ffffff;
-  font-family: Serif;
-  font-size: 50px;
-  text-align: center
-}
-
-/* Left navigation */
+/*********************/
+/** Left navigation **/
+/*********************/
 .left {
   background-color: #ffffff;
   position: absolute;
@@ -28,6 +18,9 @@ body {
   font-family: Serif;
 }
 
+/**********/
+/** Main **/
+/**********/
 .main {
   position: absolute;
   left:178px; 
@@ -35,88 +28,10 @@ body {
   right: 0; bottom:0;
 }
 
-/* ChessDataViz (clone) stuff */
+/*************/
+/** Heatmap **/
+/*************/
 .cdv-heatmap {
-  text-align: center;
-}
-
-.cdv-move-paths {
-  text-align: center;
-}
-
-.cdv-move-paths .black rect {
-  fill: #2b2b2b;
-}
-.cdv-move-paths .white rect {
-  fill: #6c6c6c;
-}
-
-
-.cdv-eval-time .graph {
-  display: table-cell;
-  vertical-align: middle;
-  font-weight: 300;
-}
-.cdv-eval-time .axis {
-  font-size: 12px;
-  font-weight: 400;
-}
-.cdv-eval-time .axis path,
-.cdv-eval-time .axis line {
-  fill: none;
-  stroke: black;
-}
-.cdv-eval-time .axis .axis-label {
-  fill: #777;
-}
-.cdv-eval-time .bar {
-  opacity: 0.9;
-}
-.cdv-eval-time .bar.white {
-  fill: white;
-}
-.cdv-eval-time .line {
-  fill: none;
-  stroke: black;
-  stroke-width: 1.5px;
-}
-.cdv-eval-time .line.white {
-  stroke: white;
-}
-.cdv-eval-time .area {
-  fill: black;
-  opacity: 0.65;
-}
-.cdv-eval-time .area.white {
-  fill: white;
-}
-.cdv-eval-time .eval-guides {
-  opacity: 0.75;
-}
-.cdv-eval-time .eval-guide-line {
-  stroke: black;
-  fill: none;
-  stroke-dasharray: 9 4;
-  stroke-width: 0.5px;
-}
-.cdv-eval-time .eval-guide-text {
-  font-size: 10px;
-  text-transform: uppercase;
-}
-.cdv-eval-time .interactive-layer {
-  fill: none;
-}
-.cdv-eval-time .interactive-layer .guide {
-  stroke: red;
-  stroke-width: 1px;
-  stroke-dasharray: 5 1;
-}
-.cdv-eval-time .interactive-layer .guide.hidden {
-  display: none;
-}
-.cdv-eval-time.wrap {
-  display: table;
-  margin: 0 auto;
   text-align: center;
 }
 .cdv-heatmap .white rect {
@@ -140,14 +55,18 @@ body {
   fill: red;
   opacity: 0.8;
 }
-.cdv-openings .arc {
-  stroke: #fff;
-  stroke-width: 0.5;
+
+/****************/
+/** Move-paths **/
+/****************/
+.cdv-move-paths {
+  text-align: center;
 }
-.cdv-openings .san {
-  fill: #fff;
-  font-size: 12px;
-  pointer-events: none;
+.cdv-move-paths .black rect {
+  fill: #2b2b2b;
+}
+.cdv-move-paths .white rect {
+  fill: #6c6c6c;
 }
 .cdv-move-paths .white .label {
   fill: black;
