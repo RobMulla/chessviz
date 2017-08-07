@@ -1,4 +1,4 @@
-var width = 400;
+var width = 200;
 var height = 200;
 var bPawnImg = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg';
 var bBishopImg = 'https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg';
@@ -238,28 +238,31 @@ var wKingImg = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.
     "pieceType" : 'r'
     }
     ];
-        var drawPieceTable = function(data) {
-            var svg = d3.select("#piecetable")
-                .append("svg")
-                .attr("width", width)
-                .attr("height", height);
-            //console.log(data);
-            
-            svg.selectAll("img")
-              .data(data)
-              .enter()
-              .append("svg:image")
-              .attr("xlink:href", function(d) {return d.url;})
-              .attr("x", function(d) {return (d.column - 1) * (width / 8);})
-              .attr("y", function(d) {return (d.row - 1) * (height / 4);})
-              .attr("width", width / 8)
-              .attr("height", height / 4)
-              .on('click', function(d) {console.log(d.piece);})
-              .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)})
-              // .on('click', function(d){makechart()});
-        }
-    drawPieceTable(data);
 
+// Define a function to draw this table of pieces
+var drawPieceTable = function(data) {
+    var svg = d3.select("#piecetable")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+    //console.log(data);
+    
+    svg.selectAll("img")
+      .data(data)
+      .enter()
+      .append("svg:image")
+      .attr("xlink:href", function(d) {return d.url;})
+      .attr("x", function(d) {return (d.column - 1) * (width / 8);})
+      .attr("y", function(d) {return (d.row - 1) * (height / 4);})
+      .attr("width", width / 8)
+      .attr("height", height / 4)
+      .on('click', function(d) {console.log(d.piece);})
+      .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)})
+      // .on('click', function(d){makechart()});
+}
+
+// Draw the table
+drawPieceTable(data);
 
 // Change Board when selecting
 function pieceSelect(movePathPiece, heatMapPiece, playerColor){
