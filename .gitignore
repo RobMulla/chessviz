@@ -12,4 +12,7 @@ app/data/json/stats/*.json
 # Python stuff
 python/build/*
 python/chessviz.egg-info
+sandbox/.ipynb_checkpoints/*
+.ipynb_checkpoints/*
+app/.ipynb_checkpoints/*
 
