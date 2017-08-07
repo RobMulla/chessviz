@@ -257,14 +257,11 @@ var wKingImg = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.
               .on('click', function(d) {console.log(d.piece);})
               .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)})
               // .on('click', function(d){makechart()});
-
-        
         }
     drawPieceTable(data);
-    
+
 
 // Change Board when selecting
-
 function pieceSelect(movePathPiece, heatMapPiece, playerColor){
   console.log("Movepath piece is: ",movePathPiece," Heatmap piece is: ",heatMapPiece, " Player color is: ",playerColor)
   document.getElementById('piece_selector').value=movePathPiece

@@ -5,29 +5,6 @@ body {
   background-color: #ffffff;
 }
 
-/*********************/
-/** Left navigation **/
-/*********************/
-.left {
-  background-color: #ffffff;
-  position: absolute;
-  left: 0; 
-  top: 92px; 
-  bottom: 0;
-  width: 178px;
-  font-family: Serif;
-}
-
-/**********/
-/** Main **/
-/**********/
-.main {
-  position: absolute;
-  left:178px; 
-  top:92px; 
-  right: 0; bottom:0;
-}
-
 /*************/
 /** Heatmap **/
 /*************/
