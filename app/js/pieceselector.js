@@ -257,7 +257,6 @@ var drawPieceTable = function(data) {
       .attr("height", height / 4)
       .on('click', function(d) {console.log(d.piece);})
       .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)})
-      // .on('click', function(d){makechart()});
 }
 
 // Draw the table

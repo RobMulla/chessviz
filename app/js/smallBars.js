@@ -67,7 +67,6 @@ var draw = function() {
           } else {
             return "#4db8ff";
           }
-          //return colorScale(d.Weirdness);
          });
       
        svg.append("line")
