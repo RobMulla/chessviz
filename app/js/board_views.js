@@ -1,8 +1,5 @@
 // Create d3 selectors for the various dropdown elements in the DOM
 var dropdown = d3.select("#json_sources")
-var pieceselection = CONFIG['piece']
-var hmcolor = d3.select("#heatmap_color")
-var hmpiece = d3.select("#heatmap_piece")
 var viztypeselector = d3.select("#viz_type")
 
 // Define a function that updates the chessboard visualizations
@@ -10,14 +7,11 @@ var update_board = function() {
 
   // Grab current state of the dropdowns
   var source = dropdown.node().options[dropdown.node().selectedIndex].value;
-  var piece = CONFIG['piece']
-  var heatmap_color = hmcolor.node().options[hmcolor.node().selectedIndex].value;
-  var heatmap_piece = hmpiece.node().options[hmpiece.node().selectedIndex].value;
   var viztype = viztypeselector.node().options[viztypeselector.node().selectedIndex].value;
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
-    accessor: piece,
+    accessor: CONFIG['piece'],
     binSize: 1,
     pointRandomizer: d3.random.normal(3, 1),
     bezierRandomizer: d3.random.normal(12, 4),
@@ -26,8 +20,8 @@ var update_board = function() {
 
   var HeatmapOptions = {
     accessor: {
-      piece: heatmap_piece,
-      color: heatmap_color
+      piece: CONFIG['heatmap_piece'],
+      color: CONFIG['heatmap_color']
     },
     sizeScale: true,
     colorScale: ['blue', 'red']
@@ -52,8 +46,6 @@ var update_board = function() {
 
 // Update page elements
 dropdown.on("change", update_board)
-hmcolor.on("change", update_board)
-hmpiece.on("change", update_board)
 viztypeselector.on("change", update_board)
 
 // Initialize the visualizations on page load

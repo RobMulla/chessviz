@@ -251,6 +251,8 @@ var drawPieceTable = function(data) {
         .attr("height", height);
     
     // create a table of chess piece images
+    // NOTE: the .on('click') method of this thing is the driver
+    // for most of the interactions in the visualization.
     svg.selectAll("img")
       .data(data)
       .enter()
@@ -273,12 +275,6 @@ function pieceSelect(movePathPiece, heatMapPiece, playerColor){
   CONFIG['piece'] = movePathPiece
   CONFIG['heatmap_piece'] = heatMapPiece
   CONFIG['heatmap_color'] = playerColor
-  
-  // Update the dropdowns
-  // TODO (jaylamb20@gmail.com):
-  // make this better.
-  document.getElementById('heatmap_piece').value=heatMapPiece
-  document.getElementById('heatmap_color').value=playerColor
 
   // Update the board
   update_board();

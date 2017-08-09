@@ -18,7 +18,8 @@ var draw = function() {
             .append("svg")
             .attr("width", w)
             .attr("height", full_h);
-      //Add grandmaster's name
+     
+     // Add grandmaster's name
      // Linear scale, used on absolute value
      var barScale = d3.scale.linear()
                       .domain([0, 100])
