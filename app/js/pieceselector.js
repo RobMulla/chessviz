@@ -268,9 +268,18 @@ drawPieceTable(piece_config);
 
 // Change Board when selecting
 function pieceSelect(movePathPiece, heatMapPiece, playerColor){
-  console.log("Movepath piece is: ",movePathPiece," Heatmap piece is: ",heatMapPiece, " Player color is: ",playerColor)
-  document.getElementById('piece_selector').value=movePathPiece
+  
+  // Update the global config
+  CONFIG['piece'] = movePathPiece
+  CONFIG['heatmap_piece'] = heatMapPiece
+  CONFIG['heatmap_color'] = playerColor
+  
+  // Update the dropdowns
+  // TODO (jaylamb20@gmail.com):
+  // make this better.
   document.getElementById('heatmap_piece').value=heatMapPiece
   document.getElementById('heatmap_color').value=playerColor
+
+  // Update the board
   update_board();
 }

@@ -18,6 +18,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <!-- Load up the initial conditions for the viz -->
+  <script src="./js/config.js"></script>
+
 </head>
 
 <body>
@@ -64,47 +67,7 @@
                   </select>​
                 </div>
 
-                <p> If you selected move paths, change piece here:</p>
-
                 <div class="select-style">
-                  <select id="piece_selector" name="piece_selector">
-                    <option value ="a2" selected>a2</option>
-                    <option value ="b2">b2</option>
-                    <option value ="c2">c2</option>
-                    <option value ="d2">d2</option>
-                    <option value ="e2">e2</option>
-                    <option value ="f2">f2</option>
-                    <option value ="g2">g2</option>
-                    <option value ="h2">h2</option>
-                    <option value ="a7">a7</option>
-                    <option value ="b7">b7</option>
-                    <option value ="c7">c7</option>
-                    <option value ="d7">d7</option>
-                    <option value ="e7">e7</option>
-                    <option value ="f7">f7</option>
-                    <option value ="g7">g7</option>
-                    <option value ="h7">h7</option>
-                    
-                    <!-- Major Pieces -->
-                    <option value ="Nb1">Nb1</option>
-                    <option value ="Nb8">Nb8</option>
-                    <option value ="Ng1">Ng1</option>
-                    <option value ="Ng8">Ng8</option>
-                    <option value ="Bc1">Bc1</option>
-                    <option value ="Bc8">Bc8</option>
-                    <option value ="Bf1">Bf1</option>
-                    <option value ="Bf8">Bf8</option>
-                    <option value ="Ra1">Ra1</option>
-                    <option value ="Ra8">Ra8</option>
-                    <option value ="Rh1">Rh1</option>
-                    <option value ="Rh8">Rh8</option>
-                    <option value ="Qd1">Qd1</option>
-                    <option value ="Qd8">Qd8</option>
-                    <option value ="Ke1">Ke1</option>
-                    <option value ="Ke8">Ke8</option>
-                  </div>
-
-                  <div class="select-style">
                   </select>​
                   <p> If you selected heatmap, choose player color and piece here:</p>
                   <select id="heatmap_color" name="heatmap_color">

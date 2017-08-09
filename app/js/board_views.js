@@ -1,6 +1,6 @@
 // Create d3 selectors for the various dropdown elements in the DOM
 var dropdown = d3.select("#json_sources")
-var pieceselection = d3.select("#piece_selector")
+var pieceselection = CONFIG['piece']
 var hmcolor = d3.select("#heatmap_color")
 var hmpiece = d3.select("#heatmap_piece")
 var viztypeselector = d3.select("#viz_type")
@@ -10,17 +10,10 @@ var update_board = function() {
 
   // Grab current state of the dropdowns
   var source = dropdown.node().options[dropdown.node().selectedIndex].value;
-  var piece = pieceselection.node().options[pieceselection.node().selectedIndex].value;
+  var piece = CONFIG['piece']
   var heatmap_color = hmcolor.node().options[hmcolor.node().selectedIndex].value;
   var heatmap_piece = hmpiece.node().options[hmpiece.node().selectedIndex].value;
   var viztype = viztypeselector.node().options[viztypeselector.node().selectedIndex].value;
-
-  // Grab current state of the menu?
-  console.log("PIECE SELECTION:",piece)
-  console.log("PLAYER SELECTION:",source)
-  console.log("HEATMAP PIECE", heatmap_piece)
-  console.log("HEATMAP COLOR",heatmap_color)
-  console.log("Viz Type:",viztype)
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
@@ -53,12 +46,12 @@ var update_board = function() {
                                                    options = HeatmapOptions,
                                                    data = data.heatmaps.squareUtilization);
     }
+
   });
 }
 
 // Update page elements
 dropdown.on("change", update_board)
-pieceselection.on("change", update_board)
 hmcolor.on("change", update_board)
 hmpiece.on("change", update_board)
 viztypeselector.on("change", update_board)
