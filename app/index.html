@@ -18,9 +18,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <!-- Highcharts JS-->
-  <script src="https://code.highcharts.com/highcharts.js"> </script>
-
   <!-- Comparison chart JS -->
   <script type="text/javascript" src="./js/compareChart.js"> </script>
 
@@ -135,41 +132,63 @@
               <!-- end left navigation -->
 
               <!-- Main app content -->
-              <div class="col-sm-9">
-
-                <!-- small multiples (bar charts) -->
+              <div class="col-sm-10">
                 <div class="row">
-                  <div id="bar_charts">
-                    <script type="text/javascript" src="./js/smallBars.js"></script>
-                  </div>
-                </div>
-
-                <!-- set up the chess board -->
-                <div class="row">
-                  <div id="chess_board" class="cdv-move-paths">
-                  </div>
-                </div>
-
-                <!-- Run whatever code is in myBoard.js -->
-                <div class="row">
-                  <div>
-                    <script type="text/javascript" src="./js/myBoard.js"></script>
-                  </div>
-                </div>
-
-                <!-- Piece selector with icons of pieces -->
-                <div class="row">
-                  <div id="piecetable">
-                    <script type="text/javascript" src='./js/pieceselector.js'> </script>
-                  </div>
-                </div>
                   
-                <!-- Player comparison Highcharts thing -->
-                <div class="row">
-                  <div id="compare_players">
+                  <div class="col-sm-5">
+                    <p>
+                      Each grandmaster has a unique playstyle summarised at
+                      a high level to the right.
+
+                      Red indicates they played common moves less than average. Blue indicates they player rares moves more than average.
+                    </p>
                   </div>
+
+                  <div class="col-sm-5">
+                    <p> this should be the upper right
+                    <!-- small multiples (bar charts) -->
+                    <div id="bar_charts">
+                      <script type="text/javascript" src="./js/smallBars.js"></script>
+                    </div>
+                  </div>
+
                 </div>
 
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p> this should be the lower left </p>
+
+                    <!-- set up the chess board -->
+                    <div id="chess_board" class="cdv-move-paths">
+                      <div id="move_paths">
+                        <script type="text/javascript" src="./js/myBoard.js"></script>
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-sm-5">
+                    <div class="row">
+                      <h2>Garry Kasparov</h2>
+                      <p>
+                      Year: 1956-
+                      Highest Elo: 2300
+                      <a href="https://en.wikipedia.org/wiki/Garry_Kasparov">Wikipedia Link</a>
+                      "The Michael Jordan of Chess"
+                      </p>
+                    </div>
+                    <div class="row">
+                      <p> this should be the lower right (lower half)
+                      <!-- Piece selector with icons of pieces -->
+                      <div class="row">
+                        <div id="piece_table">
+                          <script type="text/javascript" src='./js/pieceselector.js'> </script>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
                 </div>
               </div>
               <!-- end main app content -->
