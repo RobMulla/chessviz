@@ -1,0 +1,37 @@
+{
+  "Players": [
+    {"Name": "Kasparov",
+    "Data":
+    [
+      {"Piece": "Pawn",
+       "Weirdness": 20},
+      {"Piece": "Bishop",
+       "Weirdness": -40},
+      {"Piece": "Knight",
+       "Weirdness": 50},
+      {"Piece": "Rook", 
+       "Weirdness": 70},
+      {"Piece": "Queen",
+       "Weirdness": -75},
+      {"Piece": "King",
+       "Weirdness": -15}
+    ]},
+    {"Name": "Other Dude",
+     "Data":
+    [
+      {"Piece": "Pawn",
+       "Weirdness": 50},
+      {"Piece": "Bishop",
+       "Weirdness": 25},
+      {"Piece": "Knight",
+       "Weirdness": -30},
+      {"Piece": "Rook", 
+       "Weirdness": -10},
+      {"Piece": "Queen",
+       "Weirdness": 85},
+      {"Piece": "King",
+       "Weirdness": 25}
+    
+    ]}
+  ]
+}
