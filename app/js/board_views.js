@@ -1,11 +1,12 @@
-// create d3 selectors for the various dropdown elements in the DOm
+// Create d3 selectors for the various dropdown elements in the DOM
 var dropdown = d3.select("#json_sources")
 var pieceselection = d3.select("#piece_selector")
 var hmcolor = d3.select("#heatmap_color")
 var hmpiece = d3.select("#heatmap_piece")
 var viztypeselector = d3.select("#viz_type")
 
-var change = function() {
+// Define a function that updates the chessboard visualizations
+var update_board = function() {
 
   // Grab current state of the dropdowns
   var source = dropdown.node().options[dropdown.node().selectedIndex].value;
@@ -17,8 +18,8 @@ var change = function() {
   // Grab current state of the menu?
   console.log("PIECE SELECTION:",piece)
   console.log("PLAYER SELECTION:",source)
-  console.log("HEATMAP PIECE", heatmappiece)
-  console.log("HEATMAP COLOR",heatmapcolor)
+  console.log("HEATMAP PIECE", heatmap_piece)
+  console.log("HEATMAP COLOR",heatmap_color)
   console.log("Viz Type:",viztype)
 
   // Update configs for the two visualizations
@@ -44,22 +45,23 @@ var change = function() {
 
     // Create either a movepaths or heatmap visualization
     if (viztype == 'MovePaths') {
-      var chessboardviz = new ChessDataViz.MovePaths('#chess_board',
-                                                     MovePathsOptions,
-                                                     data.moves);
+      var chessboardviz = new ChessDataViz.MovePaths(selector = '#chess_board',
+                                                     options = MovePathsOptions,
+                                                     data = data.moves);
     } else {
-      var chessboardviz = new ChessDataViz.HeatMap('#chess_board',
-                                                   HeatmapOptions,
-                                                   data.heatmaps.squareUtilization);
+      var chessboardviz = new ChessDataViz.HeatMap(selector = '#chess_board',
+                                                   options = HeatmapOptions,
+                                                   data = data.heatmaps.squareUtilization);
     }
   });
 }
 
 // Update page elements
-dropdown.on("change", change)
-pieceselection.on("change", change)
-hmcolor.on("change", change)
-hmpiece.on("change", change)
-viztypeselector.on("change", change)
+dropdown.on("change", update_board)
+pieceselection.on("change", update_board)
+hmcolor.on("change", update_board)
+hmpiece.on("change", update_board)
+viztypeselector.on("change", update_board)
 
-change(); //trigger json on load
+// Initialize the visualizations on page load
+update_board();
