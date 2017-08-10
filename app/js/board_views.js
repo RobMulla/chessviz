@@ -24,6 +24,7 @@ var update_board = function() {
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
+    width: 800,
     accessor: CONFIG['piece'],
     binSize: 1,
     pointRandomizer: d3.random.normal(3, 1),
