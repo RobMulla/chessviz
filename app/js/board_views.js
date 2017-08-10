@@ -35,6 +35,7 @@ var update_board = function() {
   };
 
   var HeatmapOptions = {
+    colorScale: ['cyan', 'gold'],
     width: 400,
     accessor: {
       piece: CONFIG['heatmap_piece'],
