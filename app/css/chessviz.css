@@ -3,14 +3,23 @@
 /***********/
 body {
   background-color: #ffffff;
+  margin-left: 20px;
 }
 
 /***********************/
 /** Boostrap sections **/
 /***********************/
-.row {
+/*.row {
   border-style: solid;
   border-color: black;
+}*/
+
+/*********************/
+/** Intro paragraph **/
+/*********************/
+
+p #introparagraph {
+  font-size: 20px;
 }
 
 /*************/
