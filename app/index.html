@@ -55,7 +55,7 @@
             <!-- end Intro Paragraph -->
 
             <!-- small multiples (top right) -->
-            <div class="col-sm-5">
+            <div class="col-sm-7">
 
               <div id="bar_charts">
                 <script type="text/javascript" src="./js/smallBars.js"></script>
@@ -68,9 +68,13 @@
             <div class="col-sm-8">
 
               <div class="row">
+                
+                <!-- Padding the first quarter of the screen (far left) -->
                 <div class="col-sm-3">
                 </div>
+                <!-- Done w/ padding-->
 
+                <!-- Draw the two selector dropdowns side-by-side -->
                 <div class="col-sm-2">
                   <div class="select-style">
                     <p> Select Viz Type:</p>
@@ -332,31 +336,35 @@
                   </div>
                 </div>
               </div>
+              <!-- Done with selectors -->
 
               <!-- set up the chess board -->
               <div id="chess_board" class="cdv-move-paths">
                 <div id="move_paths">
                 </div>
-                </div>
-                <!-- Piece selector with icons of pieces -->
-                <div class="col-sm-pieceselector" align="center">
+              </div>
+
+              <!-- Piece selector with icons of pieces -->
+              <div class="col-sm-pieceselector" align="center">
                 <div class="row">
                   <h2>Select a Piece:</h2>
                   <div id="piecetable">
                     <script type="text/javascript" src='./js/pieceselector.js'> </script>
                   </div>
-                  
                 </div>
               </div>
+              <!-- End of piece selector -->
 
             </div>
 
-            <div class="col-sm-2">
+            <div class="col-sm-4">
               <div class="row">
                 <h2 id="player_name"></h2>
-                <img id="player_photo" width="100%" height="auto">
-                <a id="wikipedia_link">Wikipedia Link</a>
-                <p id="summary"></p>
+                <img id="player_photo" width="51%" height="auto">
+                <p>
+                  <a id="wikipedia_link">Wikipedia Link</a>
+                  <p id="summary"></p>
+                </p>
               </div>
               <div class="row">
 

@@ -8,6 +8,7 @@ app/data/pgn/*.pgn
 app/data/*.json
 app/data/json/*.json
 app/data/json/stats/*.json
+app/data/json/moves_vs_group/*
 
 # Python stuff
 python/build/*
