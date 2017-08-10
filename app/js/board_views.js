@@ -8,13 +8,8 @@ d3.json("./data/gm_metadata.json", function(data){
   metadata = data;
 });
 
-// Create a list of white pieces
-var white_pieces = ['a1','b1','c1']
-console.log(CONFIG['piece'])
-
 // Define a function that updates the chessboard visualizations
 var update_board = function() {
-  console.log(CONFIG['piece'])
 
   // Grab current state of the dropdowns
   var grand_master = dropdown.node().options[dropdown.node().selectedIndex].value;
