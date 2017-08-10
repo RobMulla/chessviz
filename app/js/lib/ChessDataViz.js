@@ -13197,7 +13197,7 @@ var MovePaths = (function () {
 			_lodash2.default.pairs(this._data[this._options.accessor]).forEach(function (d) {
 				var bin = Math.ceil(Math.abs(d[1]) / _this._options.binSize);
 
-				for (var i = 0; i < bin; i++) {
+				for (var i = 0; i < bin*10; i++) {
 					data.push(d);
 				}
 			});
@@ -13211,7 +13211,7 @@ var MovePaths = (function () {
        */
 
       var pathColor = d3.scale.linear()
-                                .domain([-1,0,1])
+                                .domain([-0.1,0,0.1])
                                 .range([-100,0,100])
             .interpolate(d3.interpolateHcl)
             //.range([d3.rgb("#0000cc"), d3.rgb('#FFFFFF'), d3.rgb('#FFF500')]);
@@ -13221,6 +13221,10 @@ var MovePaths = (function () {
           .attr('stroke', function(d) {
             return pathColor(d[1])
           })
+          .attr('stroke-opacity', function(d){
+            return Math.abs(d[1])*5
+          })
+
           /* Using class to color lines instead of stroke, technically more efficient
              but doesn't allow for color gradient?
           .attr('class', function(d) {
