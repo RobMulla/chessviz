@@ -13197,7 +13197,7 @@ var MovePaths = (function () {
 			_lodash2.default.pairs(this._data[this._options.accessor]).forEach(function (d) {
 				var bin = Math.ceil(Math.abs(d[1]) / _this._options.binSize);
 
-				for (var i = 0; i < bin*10; i++) {
+				for (var i = 0; i < bin*50; i++) {
 					data.push(d);
 				}
 			});
@@ -13222,7 +13222,7 @@ var MovePaths = (function () {
             return pathColor(d[1])
           })
           .attr('stroke-opacity', function(d){
-            return Math.abs(d[1])*5
+            return Math.abs(d[1])*0.5
           })
 
           /* Using class to color lines instead of stroke, technically more efficient

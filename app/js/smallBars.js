@@ -1,5 +1,5 @@
 //Width and height
-var full_h = 250
+var full_h = 100
 var w = 200;
 var h = full_h - 50;
 var topPadding = 10;

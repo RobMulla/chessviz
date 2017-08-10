@@ -238,8 +238,8 @@ var piece_config = [
 ];
 
 // Table size settings
-var width = 400;
-var height = 200;
+var width = 300;
+var height = 150;
 
 // Define a function to draw this table of pieces
 var drawPieceTable = function(data) {
