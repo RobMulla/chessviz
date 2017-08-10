@@ -81,14 +81,6 @@ var update_board = function() {
   d3.select("#wikipedia_link")
     .attr('href', CONFIG["metadata_settings"]["wiki_url"]);
 
-  // Country
-  d3.select("#country")
-    .text("Country: " + CONFIG["metadata_settings"]["Country"]);
-
-  // Date of Birth
-  d3.select("#date_of_birth")
-    .text("Birth Date: " + CONFIG["metadata_settings"]["Birth Date"]);
-
   // Player Summary
   d3.select("#summary")
     .text(CONFIG["metadata_settings"]["wiki_summary"]);
