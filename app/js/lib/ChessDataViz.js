@@ -13210,7 +13210,7 @@ var MovePaths = (function () {
        * In data processing function, turns back into absolute value
        */
 
-      var pathColor = d3.scale.linear().domain([-100,0,100])
+      var pathColor = d3.scale.linear().domain([-5,0,5])
             .interpolate(d3.interpolateHcl)
             //.range([d3.rgb("#0000cc"), d3.rgb('#FFFFFF'), d3.rgb('#FFF500')]);
             .range(['blue', 'white', 'red']);
