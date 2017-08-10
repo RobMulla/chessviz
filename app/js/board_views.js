@@ -24,7 +24,7 @@ var update_board = function() {
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
-    //width: 400,
+    width: 600,
     accessor: CONFIG['piece'],
     binSize: 1,
     pointRandomizer: d3.random.normal(3, 1),
@@ -33,6 +33,7 @@ var update_board = function() {
   };
 
   var HeatmapOptions = {
+    width: 600,
     accessor: {
       piece: CONFIG['heatmap_piece'],
       color: CONFIG['heatmap_color']
