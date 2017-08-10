@@ -8,8 +8,13 @@ d3.json("./data/gm_metadata.json", function(data){
   metadata = data;
 });
 
+// Create a list of white pieces
+var white_pieces = ['a1','b1','c1']
+console.log(CONFIG['piece'])
+
 // Define a function that updates the chessboard visualizations
 var update_board = function() {
+  console.log(CONFIG['piece'])
 
   // Grab current state of the dropdowns
   var grand_master = dropdown.node().options[dropdown.node().selectedIndex].value;
@@ -20,11 +25,11 @@ var update_board = function() {
   CONFIG['viz_type'] = viztype
 
   // Figure out path to this grand master's data
-  source = './data/json/stats/' + grand_master + '_stats.json'
+  source = './data/json/as_color/' + grand_master + '.asblack_stats.json'
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
-    width: 800,
+    //width: 400,
     accessor: CONFIG['piece'],
     binSize: 1,
     pointRandomizer: d3.random.normal(3, 1),
@@ -83,6 +88,10 @@ var update_board = function() {
   // Date of Birth
   d3.select("#date_of_birth")
     .text("Birth Date: " + CONFIG["metadata_settings"]["Birth Date"]);
+
+  // Player Summary
+  d3.select("#summary")
+    .text(CONFIG["metadata_settings"]["wiki_summary"]);
 }
 
 
@@ -97,6 +106,7 @@ var update_player_info = function(){
   CONFIG["metadata_settings"]["wiki_url"] = metadata[grand_master]['wiki_url']
   CONFIG["metadata_settings"]["Country"] = metadata[grand_master]['Country']
   CONFIG["metadata_settings"]["Birth Date"] = metadata[grand_master]['Birth Date']
+  CONFIG["metadata_settings"]["wiki_summary"] = metadata[grand_master]['wiki_summary']
 
   update_board()
 }
