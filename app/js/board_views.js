@@ -3,7 +3,6 @@ var dropdown = d3.select("#json_sources")
 var viztypeselector = d3.select("#viz_type")
 
 // Read in all the player metadata
-// NOTE: just do this once so we don't keep re-doing it
 var metadata;
 d3.json("./data/gm_metadata.json", function(data){
   metadata = data;
@@ -18,6 +17,7 @@ var update_board = function() {
 
   // Update global config
   CONFIG['grandmaster'] = grand_master
+  CONFIG['viz_type'] = viztype
 
   // Figure out path to this grand master's data
   source = './data/json/stats/' + grand_master + '_stats.json'
@@ -60,33 +60,49 @@ var update_board = function() {
 
   });
 
-  //==================================//
-  //===== Update the player info =====//
-  //==================================//
-
+  //======================================//
+  //===== Push metadadata to the viz =====//
+  //======================================//
   // Update the fullname
   d3.select("#player_name")
-    .text(metadata[grand_master]['Name-PGN-Site']);
+    .text(CONFIG["metadata_settings"]["Name-PGN-Site"]);
 
   // Player photo from Wikipedia
   d3.select("#player_photo")
-    .attr('src', metadata[grand_master]['wiki_images'][0])
+    .attr('src', CONFIG["metadata_settings"]["wiki_image"])
 
   // Link to Wikipedia page
   d3.select("#wikipedia_link")
-    .attr('href', metadata[grand_master]['wiki_url']);
+    .attr('href', CONFIG["metadata_settings"]["wiki_url"]);
 
   // Country
   d3.select("#country")
-    .text("Country: " + metadata[grand_master]['Country']);
+    .text("Country: " + CONFIG["metadata_settings"]["Country"]);
 
   // Date of Birth
   d3.select("#date_of_birth")
-    .text("Birth Date: " + metadata[grand_master]['Birth Date']);
+    .text("Birth Date: " + CONFIG["metadata_settings"]["Birth Date"]);
+}
+
+
+//==================================//
+//===== Update the player info =====//
+//==================================//
+var update_player_info = function(){
+  // Update config
+  var grand_master = dropdown.node().options[dropdown.node().selectedIndex].value;
+  CONFIG["metadata_settings"]["Name-PGN-Site"] = metadata[grand_master]['Name-PGN-Site']
+  CONFIG["metadata_settings"]["wiki_image"] = metadata[grand_master]['wiki_images'][0]
+  CONFIG["metadata_settings"]["wiki_url"] = metadata[grand_master]['wiki_url']
+  CONFIG["metadata_settings"]["Country"] = metadata[grand_master]['Country']
+  CONFIG["metadata_settings"]["Birth Date"] = metadata[grand_master]['Birth Date']
+
+  update_board()
 }
 
 // Update page elements
 dropdown.on("change", update_board)
+dropdown.on("change", update_player_info)
 viztypeselector.on("change", update_board)
 
 // Initialize the visualizations on page load
