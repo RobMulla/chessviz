@@ -52,17 +52,17 @@
                 <p> Choose Grand Master:</p>
                 <div class="select-style">
                   <select id="json_sources" name="json_sources">
-                    <option value ="./data/json/as_color/Kasparov.asblack_stats.json" selected>Kasparov</option>
-                    <option value ="./data/json/stats/Carlsen_stats.json">Carlsen</option>
-                    <option value ="./data/json/stats/Fischer_stats.json">Fischer</option>
-                    <option value ="./data/json/stats/Karpov_stats.json">Karpov</option>
-                    <option value ="./data/json/stats/Capablanca_stats.json">Capablanca</option>
-                    <option value ="./data/json/stats/Lasker_stats.json">Lasker</option>
-                    <option value ="./data/json/stats/Morphy_stats.json">Morphy</option>
-                    <option value ="./data/json/stats/Kramnik_stats.json">Kramnik</option>
-                    <option value ="./data/json/stats/Botvinnik_stats.json">Botvinnik</option>
-                    <option value ="./data/json/stats/TorreRepetto_stats.json">TorreRepetto</option>
-                    <option value ="./data/json/stats/MacKenzie_stats.json">MacKenzie</option>
+                    <option value ="Kasparov" selected>Kasparov</option>
+                    <option value ="Carlsen">Carlsen</option>
+                    <option value ="Fischer">Fischer</option>
+                    <option value ="Karpov">Karpov</option>
+                    <option value ="Capablanca">Capablanca</option>
+                    <option value ="Lasker">Lasker</option>
+                    <option value ="Morphy">Morphy</option>
+                    <option value ="Kramnik">Kramnik</option>
+                    <option value ="Botvinnik">Botvinnik</option>
+                    <option value ="TorreRepetto">TorreRepetto</option>
+                    <option value ="MacKenzie">MacKenzie</option>
 
                   </select>​
                 </div>
@@ -74,7 +74,7 @@
                 <div class="row">
                   
                   <div class="col-sm-5">
-                    <p>
+                    <p id="introparagraph">
                       Each grandmaster has a unique playstyle summarised at
                       a high level to the right.
 
@@ -106,16 +106,13 @@
                   </div>
                   <div class="col-sm-3">
                     <div class="row">
-                      <h2>Garry Kasparov</h2>
-                      <p>
-                      Year: 1956-
-                      Highest Elo: 2300
-                      <a href="https://en.wikipedia.org/wiki/Garry_Kasparov">Wikipedia Link</a>
-                      "The Michael Jordan of Chess"
-                      </p>
+                      <h2 id="player_name"></h2>
+                      <img id="player_photo" width="100%" height="200px">
+                      <a id="wikipedia_link">Wikipedia Link</a>
+                      <p id="country"></p>
+                      <p id="date_of_birth"></p>
                     </div>
                     <div class="row">
-                      <p> this should be the lower right (lower half)
                       <!-- Piece selector with icons of pieces -->
                       <div class="row">
                         <div id="piecetable">

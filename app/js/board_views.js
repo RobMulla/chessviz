@@ -2,12 +2,25 @@
 var dropdown = d3.select("#json_sources")
 var viztypeselector = d3.select("#viz_type")
 
+// Read in all the player metadata
+// NOTE: just do this once so we don't keep re-doing it
+var metadata;
+d3.json("./data/gm_metadata.json", function(data){
+  metadata = data;
+});
+
 // Define a function that updates the chessboard visualizations
 var update_board = function() {
 
   // Grab current state of the dropdowns
-  var source = dropdown.node().options[dropdown.node().selectedIndex].value;
+  var grand_master = dropdown.node().options[dropdown.node().selectedIndex].value;
   var viztype = viztypeselector.node().options[viztypeselector.node().selectedIndex].value;
+
+  // Update global config
+  CONFIG['grandmaster'] = grand_master
+
+  // Figure out path to this grand master's data
+  source = './data/json/stats/' + grand_master + '_stats.json'
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
@@ -27,7 +40,11 @@ var update_board = function() {
     colorScale: ['blue', 'red']
   };
 
-  // Read in the game data and 
+  //============================//
+  //===== Update the board =====//
+  //============================//
+
+  // Read in the game data and change the chessboard
   d3.json(source, function(data) {
 
     // Create either a movepaths or heatmap visualization
@@ -42,6 +59,30 @@ var update_board = function() {
     }
 
   });
+
+  //==================================//
+  //===== Update the player info =====//
+  //==================================//
+
+  // Update the fullname
+  d3.select("#player_name")
+    .text(metadata[grand_master]['Name-PGN-Site']);
+
+  // Player photo from Wikipedia
+  d3.select("#player_photo")
+    .attr('src', metadata[grand_master]['wiki_images'][0])
+
+  // Link to Wikipedia page
+  d3.select("#wikipedia_link")
+    .attr('href', metadata[grand_master]['wiki_url']);
+
+  // Country
+  d3.select("#country")
+    .text("Country: " + metadata[grand_master]['Country']);
+
+  // Date of Birth
+  d3.select("#date_of_birth")
+    .text("Birth Date: " + metadata[grand_master]['Birth Date']);
 }
 
 // Update page elements
