@@ -22,7 +22,7 @@ var update_board = function() {
   // Figure out path to this grand master's data
   //source = './data/json/as_color/' + grand_master + '.asblack_stats.json'
   // test json file
-  source = './data/json/moves_vs_group/' + grand_master + '_movepct_vs_group.json'
+  source = './data/json/moves_vs_group/' + grand_master + '.movepct_vs_group.json'
 
   // Update configs for the two visualizations
   var MovePathsOptions = {
