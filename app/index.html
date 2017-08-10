@@ -39,60 +39,69 @@
       <div class="container-fluid">
           <div class="row">
   
-              <!-- Main sidebar -->
-              <div class="col-sm-1">
-                <div class="select-style">
-                  <p> Select Viz Type:</p>
-                  <select id="viz_type" name="viz_type">
-                    <option value ="MovePaths" selected>Move Paths</option>
-                    <option value ="HeatMap">Heatmap</option>
-                  </select>​
-                </div>
-
-                <p> Choose Grand Master:</p>
-                <div class="select-style">
-                  <select id="json_sources" name="json_sources">
-                    <option value ="Kasparov" selected>Kasparov</option>
-                    <option value ="Carlsen">Carlsen</option>
-                    <option value ="Fischer">Fischer</option>
-                    <option value ="Karpov">Karpov</option>
-                    <option value ="Capablanca">Capablanca</option>
-                    <option value ="Lasker">Lasker</option>
-                    <option value ="Morphy">Morphy</option>
-                    <option value ="Kramnik">Kramnik</option>
-                    <option value ="Botvinnik">Botvinnik</option>
-                    <option value ="TorreRepetto">TorreRepetto</option>
-                    <option value ="MacKenzie">MacKenzie</option>
-
-                  </select>​
-                </div>
-              </div>
-              <!-- end left navigation -->
-
               <!-- Main app content -->
               <div class="col-sm-10">
+                
                 <div class="row">
-                  
+                  <!-- Intro paragraph (top left) -->
                   <div class="col-sm-5">
                     <p id="introparagraph">
                       Each grandmaster has a unique playstyle summarised at
                       a high level to the right.
 
-                      Red indicates they played common moves less than average. Blue indicates they player rares moves more than average.
+                      <FONT color="#cc0000">Red</FONT> indicates they played common moves less than average. <FONT color="#4db8ff">Blue</FONT> indicates they player rares moves more than average.
                     </p>
                   </div>
+                  <!-- end Intro Paragraph -->
 
+                  <!-- small multiples (top right) -->
                   <div class="col-sm-5">
-                    <!-- small multiples (bar charts) -->
+                    
                     <div id="bar_charts">
                       <script type="text/javascript" src="./js/smallBars.js"></script>
                     </div>
                   </div>
-
+                  <!-- end small multiples -->
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-7">
+                  <div class="col-sm-8">
+                    
+                    <div class="row">
+                      <div class="col-sm-3">
+                      </div>
+
+                      <div class="col-sm-2">
+                        <div class="select-style">
+                          <p> Select Viz Type:</p>
+                          <select id="viz_type" name="viz_type">
+                            <option value ="MovePaths" selected>Move Paths</option>
+                            <option value ="HeatMap">Heatmap</option>
+                          </select>​
+                        </div>
+                      </div>
+
+                      <div class="col-sm-3">
+                        <p> Choose Grand Master:</p>
+                        <div class="select-style">
+                          <select id="json_sources" name="json_sources">
+                            <option value ="Kasparov" selected>Kasparov</option>
+                            <option value ="Carlsen">Carlsen</option>
+                            <option value ="Fischer">Fischer</option>
+                            <option value ="Karpov">Karpov</option>
+                            <option value ="Capablanca">Capablanca</option>
+                            <option value ="Lasker">Lasker</option>
+                            <option value ="Morphy">Morphy</option>
+                            <option value ="Kramnik">Kramnik</option>
+                            <option value ="Botvinnik">Botvinnik</option>
+                            <option value ="TorreRepetto">TorreRepetto</option>
+                            <option value ="MacKenzie">MacKenzie</option>
+
+                          </select>​
+                        </div>
+                      </div>
+                    </div>
+
                     <!-- set up the chess board -->
                     <div id="chess_board" class="cdv-move-paths">
                       <div id="move_paths">
@@ -100,7 +109,8 @@
                     </div>
 
                   </div>
-                  <div class="col-sm-3">
+
+                  <div class="col-sm-2">
                     <div class="row">
                       <h2 id="player_name"></h2>
                       <img id="player_photo" width="100%" height="200px">
