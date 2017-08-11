@@ -7,7 +7,7 @@ var barPadding = 5;
 
 //var player_choice = d3.select("#player_choice")
 var draw = function() {
-  d3.json("./data/json/weirdness_sample_data.json", function(err, data) {
+  d3.json("./data/json/player_weirdness.json", function(err, data) {
     
     drawPlayer = function(data) {
       
