@@ -1,9 +1,9 @@
 //Width and height
 var full_h = 100
 var w = 200;
-var h = full_h - 50;
+var h = full_h - 30;
 var topPadding = 10;
-var barPadding = 5;
+var barPadding = 1;
 
 //var player_choice = d3.select("#player_choice")
 var draw = function() {
@@ -43,7 +43,7 @@ var draw = function() {
          .attr("y", (full_h - h) / 2)
          .style("text-anchor", "middle")
          .attr("font-family", "sans-serif")
-         .attr("font-size", "20px")
+         .attr("font-size", "16px")
          .attr("fill", "grey");
       
       svg.selectAll("rect")
