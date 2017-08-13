@@ -10,6 +10,9 @@ app/data/json/*.json
 app/data/json/stats/*.json
 app/data/json/moves_vs_group/*
 
+# Images
+app/img/*.svg
+
 # Python stuff
 python/build/*
 python/chessviz.egg-info
