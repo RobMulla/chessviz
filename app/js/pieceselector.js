@@ -1,15 +1,15 @@
-var bPawnImg = 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg';
-var bBishopImg = 'https://upload.wikimedia.org/wikipedia/commons/9/98/Chess_bdt45.svg';
-var bKnightImg = 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg';
-var bRookImg = 'https://upload.wikimedia.org/wikipedia/commons/f/ff/Chess_rdt45.svg';
-var bQueenImg = 'https://upload.wikimedia.org/wikipedia/commons/4/47/Chess_qdt45.svg';
-var bKingImg = 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg';
-var wPawnImg = 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg';
-var wBishopImg = 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Chess_blt45.svg';
-var wKnightImg = 'https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg';
-var wRookImg = 'https://upload.wikimedia.org/wikipedia/commons/7/72/Chess_rlt45.svg';
-var wQueenImg = 'https://upload.wikimedia.org/wikipedia/commons/1/15/Chess_qlt45.svg';
-var wKingImg = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg';
+var bPawnImg = './img/black_pawn.svg';
+var bBishopImg = './img/black_bishop.svg';
+var bKnightImg = './img/black_knight.svg';
+var bRookImg = './img/black_rook.svg';
+var bQueenImg = './img/black_queen.svg';
+var bKingImg = './img/black_king.svg';
+var wPawnImg = './img/white_pawn.svg';
+var wBishopImg = './img/white_bishop.svg';
+var wKnightImg = './img/white_knight.svg';
+var wRookImg = './img/white_rook.svg';
+var wQueenImg = './img/white_queen.svg';
+var wKingImg = './img/white_king.svg';
 var piece_config = [
 {"url":bRookImg,
 "row":1,
@@ -256,13 +256,30 @@ var drawPieceTable = function(data) {
     svg.selectAll("img")
       .data(data)
       .enter()
-      .append("svg:image")
-      .attr("xlink:href", function(d) {return d.url;})
+      .append("svg")
+      .attr("id", "chesspiece")
+      .each(function(d) {
+          // Reference:
+          // [1] https://stackoverflow.com/questions/16429199/selections-in-d3-how-to-use-parentnode-appendchild
+          var g = d3.select(this); // Grab the svg we're creating
+          var svg_path = d.url;    // Get the file path for this piece's SVG
+          d3.xml(svg_path).mimeType("image/svg+xml").get(function(error, xml){
+                  g.node().appendChild(xml.documentElement);
+                });
+        })
       .attr("x", function(d) {return (d.column - 1) * (width / 8);})
       .attr("y", function(d) {return (d.row - 1) * (height / 4);})
-      .attr("width", width / 8)
-      .attr("height", height / 4)
-      .on('click', function(d){pieceSelect(d.piece, d.pieceType, d.color)})
+      .on('click', function(d){
+        
+        // gray out all the other pieces
+        d3.selectAll("#chesspiece").attr('opacity', 0.2)
+
+        // color this one so it stands out
+        d3.select(this).attr('opacity', 1.0)        
+
+        // change selection
+        pieceSelect(d.piece, d.pieceType, d.color);
+        })
 }
 
 // Draw the table of pieces
