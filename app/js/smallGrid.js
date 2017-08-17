@@ -134,6 +134,10 @@ var draw = function() {
         d3.select("#json_sources").property('value', d.Name);
         update_board();
         update_player_info();
+
+        // Update Select2 Value
+        $('#json_sources').val(d.Name).trigger('change.select2');
+
         //console.log(d.Name);
     })
 

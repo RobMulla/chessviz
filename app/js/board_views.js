@@ -1,6 +1,7 @@
 // Create d3 selectors for the various dropdown elements in the DOM
 var dropdown = d3.select("#json_sources")
 var viztypeselector = d3.select("#viz_type")
+var playerdropdown = d3.select("#player_dropdown")
 
 // Read in all the player metadata
 var metadata;
@@ -106,6 +107,7 @@ var update_player_info = function(){
 dropdown.on("change", update_board)
 dropdown.on("change", update_player_info)
 viztypeselector.on("change", update_board)
+
 
 // Initialize the visualizations on page load
 update_board();
