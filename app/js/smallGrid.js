@@ -25,7 +25,7 @@ var draw = function() {
         
     
     // Limit data right now for testing
-    data = data.slice(0, 102);
+    //data = data.slice(0, 102);
     //console.log(data);
 
     var indices = data.length / 6;
@@ -43,7 +43,7 @@ var draw = function() {
         left: 20
     };
         
-    var pieceWidth = 50;
+    var pieceWidth = 30;
         
     var boxPadding = 1;
 
@@ -68,7 +68,7 @@ var draw = function() {
         .style("font-size", "14px")
         .attr("id", "player-labels")
         //.transform("rotate(90)")
-        .attr("dy", function(d) {return (d.Column - 1) * ((width + 4) / (data.length / 6)) + margin.left + pieceWidth * 1.45;})
+        .attr("dy", function(d) {return (d.Column - 1) * ((width) / (data.length / 6)) + margin.left + pieceWidth * 2;})
         .attr("dx", -margin.bottom + 5)
         //.attr("dy", ".35em")
         //.attr("text-anchor", "middle")
