@@ -23,15 +23,23 @@ var pieceData = [
 var draw = function() {
     d3.json("./data/json/player_weirdness.json", function(err, data) {
         
-        // Limit data right now for testing
-        data = data.slice(0, 102);
-        //console.log(data);
-        
     
+    // Limit data right now for testing
+    data = data.slice(0, 102);
+    //console.log(data);
+
+    var indices = data.length / 6;
+    var nameValues = new Array(data.length / 6);    
+    
+    for(var i=0;i<indices;i++){
+      nameValues[i] = {'Name': data[i * 6].Name, 'Column':i+1};
+    }
+
+        
     var margin = {
         top: 0,
         right: 20,
-        bottom: 20,
+        bottom: 60,
         left: 20
     };
         
@@ -39,7 +47,7 @@ var draw = function() {
         
     var boxPadding = 1;
 
-    var width = Math.min(window.innerWidth / 2, 1000) - margin.left - margin.right - 20,
+    var width = Math.min(window.innerWidth / 2, 1500) - margin.left - margin.right - 20,
     height = 200;
 
         
@@ -49,8 +57,21 @@ var draw = function() {
 	.attr("width", width + margin.left + margin.right + pieceWidth)
 	.attr("height", height + margin.top + margin.bottom)
 	.append("g")
-	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	//.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+        
+    svg.selectAll("text")
+        .data(nameValues)
+        .enter()
+        .append("text")
+        .text(function(d) {return d.Name;})
+        .style("font-size", "14px")
+        .attr("id", "player-labels")
+        //.transform("rotate(90)")
+        .attr("dy", function(d) {return (d.Column - 1) * ((width + 4) / (data.length / 6)) + margin.left + pieceWidth * 1.45;})
+        .attr("dx", -margin.bottom + 5)
+        //.attr("dy", ".35em")
+        //.attr("text-anchor", "middle")
         
     svg.selectAll("img")
         .data(pieceData)
