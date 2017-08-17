@@ -65,7 +65,7 @@ var draw = function() {
         .enter()
         .append("text")
         .text(function(d) {return d.Name;})
-        .style("font-size", "14px")
+        .style("font-size", "10px")
         .attr("id", "player-labels")
         //.transform("rotate(90)")
         .attr("dy", function(d) {return (d.Column - 1) * ((width) / (data.length / 6)) + margin.left + pieceWidth * 2;})
