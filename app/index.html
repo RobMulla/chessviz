@@ -54,8 +54,60 @@
                 Select 'Heatmap' to see the locations where pieces commonly land for this player.
                 </p>
               
-              <p id="introparagraph">Click on the specific piece below to see only that pieces moves.
+              <p id="introparagraph">
+              Click on the specific piece below to see only that pieces moves.
               </p>
+
+              <!-- "About" section modal -->
+              <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">About the Team</button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h3 class="modal-title">The chessviz team</h3>
+                    </div>
+                    <div class="modal-body">
+                      
+                      <b>Team Members:</b>
+                      <ul>
+                        <li>Matthew Burke</li>
+                        <li>Rob Mulla</li>
+                        <li>James Lamb</li>
+                      </ul>
+                      
+                      <b>Project Goals</b>
+                      <p>
+                      The goal of this project is to empower people who are interested in chess to examine differences in the playing styles of chess grandmasters. We sought to use principles learned in W209 to surface interesting and useful stories that could only be told visually.
+                      </p>
+
+                      <b>Intended Audience:</b>
+                      <p>
+                      Our intended audience is chess enthusiasts of all skill levels who are interested in exploring the differences in grandmasters' playing styles. It's very common for players to attempt to improve by studying the styles of chess's greatest players.
+                      </p>
+
+                      <b>Data Source</b>
+                      <p>
+                      Historical game data was pulled from the <a href="http://www.ficsgames.org/">FICS Game Database</a>. These data come in the form of specialized text files called PGNs ("portable game notation"). We also use the excellent Python package <a href="https://pypi.python.org/pypi/wikipedia">wikipedia</a> to pull in player metadata.
+                      </p>
+
+                      <b>Project GitHub</b>
+                      <p>
+                      For those brave souls who want to dive into the source code, you can find it here: <a hrer="https://github.com/jameslamb/chessviz">https://github.com/jameslamb/chessviz</a>
+                      </p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+
             </div>
             <!-- end Intro Paragraph -->
 

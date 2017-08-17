@@ -5,7 +5,7 @@ This repo holds all files related to `chessviz`, and interactive visualization o
 ## Contents
 1. [Target Use Case](#usecase)
 2. [Repo Structure](#repo)
-3. [Data Source](#datasource)
+3. [Data Sources](#datasources)
 4. [How to Create an App Instance](#appdirections)
 5. [References](#references)
 
@@ -78,14 +78,6 @@ In order to calculate some of the data for specific tasks, the data needs to pro
 
 We used the `python-chess` package to read in the PGN file for initial processing.
 
-## How to Create an App Instance
-
-Begin by cloning this repo.
-
-```
-git clone https://github.com/jameslamb/chessviz
-```
-
 ## References <a name="references"></a>
 
 ### Chess Stuff
@@ -99,5 +91,4 @@ git clone https://github.com/jameslamb/chessviz
 1. [Getting Started with Bootstrap](https://v4-alpha.getbootstrap.com/layout/grid/)
 2. [How to Include Bootstrap in a Project](https://www.codecademy.com/articles/bootstrap)
 3. [W3Schools tutorial](https://www.w3schools.com/bootstrap/)
-
 
