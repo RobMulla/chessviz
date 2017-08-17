@@ -23,8 +23,9 @@ var pieceData = [
 var draw = function() {
     d3.json("./data/json/player_weirdness.json", function(err, data) {
         
+        // Limit data right now for testing
         data = data.slice(0, 102);
-        console.log(data);
+        //console.log(data);
         
     
     var margin = {
@@ -49,9 +50,7 @@ var draw = function() {
 	.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 	.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
-    console.log(height);
-    console.log(width);
+
         
     svg.selectAll("img")
         .data(pieceData)
@@ -110,7 +109,11 @@ var draw = function() {
                        .attr('stroke-width', '1px');
       })
       .on("click", function(d) {
-        console.log(d.Name);
+        //CONFIG['grandmaster'] = d.Name;
+        d3.select("#json_sources").property('value', d.Name);
+        update_board();
+        update_player_info();
+        //console.log(d.Name);
     })
 
         
