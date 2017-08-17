@@ -5,7 +5,6 @@ $(document).ready(function() {
     placeholder: "Select Viz Type"
   })
   .on("change", function() {
-        console.log($(this).val())
         update_board()
         update_player_info()
         })
@@ -16,7 +15,6 @@ $(document).ready(function() {
     placeholder: "Select Viz Type"
   })
   .on("change", function() {
-        console.log($(this).val())
         update_board()
         update_player_info()
         })
